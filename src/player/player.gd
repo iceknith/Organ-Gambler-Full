@@ -26,15 +26,18 @@ var organs:Array[Organ]
 var modifierHandlers:Dictionary[Attributes, ModifierHandler] = {}
 
 # Coins
+@export var maxCoinCount:int = 6
 @export var defaultCoins:Array[String] = [
+	"SimpleCoin"
 ]
 var coins:Array[Coin]
-
 
 ###---Signals---#
 signal money_change(new_money_count:float)
 signal organ_added(organ:Organ)
 signal organ_removed(organ:Organ)
+signal coin_added(coin:Coin)
+signal coin_removed(coin:Coin)
 
 ###---Getters---###
 func get_attribute(attr:Attributes) -> float:
@@ -58,8 +61,9 @@ func add_organ(organ:Organ) -> void:
 		# Adding them to their corresponding ModifierHandler
 		var modifierHandler:ModifierHandler = modifierHandlers.get_or_add(modifier.type, ModifierHandler.new(modifier.type))
 		modifierHandler.add(modifier)
-	# Call organ "_on_added" method
+	# Notify change
 	organ._on_added()
+	organ_added.emit(organ)
 
 func remove_organ(organ:Organ) -> void:
 	if organs.has(organ):
@@ -70,8 +74,27 @@ func remove_organ(organ:Organ) -> void:
 			var modifierHandler:ModifierHandler = modifierHandlers.get(modifier.type)
 			if !modifierHandler: printerr("Error, modifiers weren't properly initialized and can't get deleted"); return
 			modifierHandler.remove(modifier)
+		# Notify change
+		organ._on_removed()
+		organ_removed.emit(organ)
 	else:
-		printerr("Tried to erase the organ: %s but it doesn't exist in body" % [str(organ)])
+		printerr("Tried to remove the organ: %s but it doesn't exist in player" % [str(organ)])
+
+func add_coin(coin:Coin) -> void:
+	if coins.size() >= maxCoinCount: printerr("Coin %s could not be added because player has already max amount of coins" % [str(coin)]); return
+	coins.append(coin)
+	# Notify change
+	coin._on_added()
+	coin_added.emit(coin)
+
+func remove_coin(coin:Coin) -> void:
+	if coins.has(coin):
+		coins.erase(coin)
+		# Notify change
+		coin._on_removed()
+		coin_removed.emit(coin)
+	else:
+		printerr("Tried to remove the coin: %s but it doesn't exist in player" % [str(coins)])
 
 ###---Functions---###
 
@@ -92,4 +115,6 @@ func load_default_organs() -> void:
 		if organ: add_organ(organ)
 
 func load_default_coins() -> void:
-	pass
+	for coinName:String in defaultCoins:
+		var coin:Coin = CoinLoader.get_coin(coinName)
+		if coin: add_coin(coin)

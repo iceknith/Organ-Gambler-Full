@@ -13,7 +13,7 @@ func load_coins() -> void:
 		var coin:Coin = load(dir.get_current_dir() + "/" + file)
 		coins.set(coin.name, dir.get_current_dir() + "/" + file)
 
-func get_coins(name:String) -> Organ:
+func get_coin(name:String) -> Coin:
 	if (coins.has(name)): return load(coins.get(name))
 	printerr("No coins matching the name " + name + " found !")
 	return null

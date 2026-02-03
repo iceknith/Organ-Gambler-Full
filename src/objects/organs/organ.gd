@@ -9,7 +9,13 @@ signal remove
 
 @export var modifiers:Array[Modifier]
 
+func _to_string() -> String:
+	return name
+
 func _on_added():
+	pass
+
+func _on_removed():
 	pass
 
 func _on_round_started():

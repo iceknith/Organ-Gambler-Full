@@ -9,3 +9,6 @@ enum ValueTypes {
 @export var type:Player.Attributes
 @export var value:float
 @export var valueType:ValueTypes
+
+func _to_string() -> String:
+	return "%s : %f %s" % [str(type), value, valueType]
