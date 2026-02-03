@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://bf6iw5jaxcy8j"]
+
+[ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_m27os"]
+
+[resource]
+script = ExtResource("1_m27os")
+valueHeads = 1.0
+name = "SimpleCoin"
+description = "The simplest coin"
+durability = -1.0
+metadata/_custom_type_script = "uid://7083qkrbff1n"
