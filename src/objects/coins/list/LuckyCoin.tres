@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://bxv7flpgg8aj7"]
+
+[ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_bkvhw"]
+
+[resource]
+script = ExtResource("1_bkvhw")
+valueHeads = 1.0
+durability = 4.0
+name = "LuckyCoin"
+description = "good luck"
+metadata/_custom_type_script = "uid://7083qkrbff1n"

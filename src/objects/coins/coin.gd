@@ -2,6 +2,7 @@
 
 @export var durability:float
 @export var base_cost:float
+@export var luck:float = 50
 
 func _to_string() -> String:
 	return name
