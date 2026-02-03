@@ -1,7 +1,5 @@
-@abstract class_name Coin extends Resource
+@abstract class_name Coin extends MiscObject
 
-@export var name:String
-@export var description:String
 @export var durability:float
 @export var base_cost:float
 

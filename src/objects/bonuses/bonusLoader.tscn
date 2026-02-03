@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://crpd8ve55hkmh"]
+
+[ext_resource type="Script" uid="uid://dlmavypl77va6" path="res://src/objects/objectLoader.gd" id="1_muhrm"]
+
+[node name="BonusLoader" type="Node"]
+script = ExtResource("1_muhrm")
+path = "res://src/objects/bonuses/list/"
+metadata/_custom_type_script = "uid://dlmavypl77va6"

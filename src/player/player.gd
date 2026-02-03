@@ -90,7 +90,7 @@ func remove_organ(organ:Organ) -> void:
 
 func add_organs(organ_name:String, amount:int = 1) -> void:
 	for i in amount:
-		var organ:Organ = OrganLoader.get_organ(organ_name)
+		var organ:Organ = OrganLoader.get_object(organ_name)
 		if organ: add_organ(organ)
 
 func remove_organs(organ_name:String, amount:int = 1) -> void:
@@ -158,5 +158,5 @@ func load_default_organs() -> void:
 
 func load_default_coins() -> void:
 	for coin_name:String in defaultCoins:
-		var coin:Coin = CoinLoader.get_coin(coin_name)
+		var coin:Coin = CoinLoader.get_object(coin_name)
 		if coin: add_coin(coin)

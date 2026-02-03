@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhjsojcwka6hi"]
+
+[ext_resource type="Script" uid="uid://dlmavypl77va6" path="res://src/objects/objectLoader.gd" id="1_u433r"]
+
+[node name="CoinLoader" type="Node"]
+script = ExtResource("1_u433r")
+path = "res://src/objects/coins/list/"
+metadata/_custom_type_script = "uid://dlmavypl77va6"

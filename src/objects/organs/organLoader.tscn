@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvb6oj2rq3ixl"]
+
+[ext_resource type="Script" uid="uid://dlmavypl77va6" path="res://src/objects/objectLoader.gd" id="1_mrv84"]
+
+[node name="OrganLoader" type="Node"]
+script = ExtResource("1_mrv84")
+path = "res://src/objects/organs/list/"
+metadata/_custom_type_script = "uid://dlmavypl77va6"

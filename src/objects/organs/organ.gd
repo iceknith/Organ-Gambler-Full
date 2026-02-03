@@ -1,9 +1,7 @@
-class_name Organ extends Resource
+class_name Organ extends MiscObject
 
 signal remove
 
-@export var name:String
-@export var description:String
 @export var picture:Texture2D
 @export var base_cost:float
 
