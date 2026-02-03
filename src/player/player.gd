@@ -23,7 +23,7 @@ enum Attributes {
 var organs:Array[Organ]
 
 # Modifiers
-var modifierHandlers:Dictionary[Attributes, ModifierHandler] = {}
+var attributeModifierHandlers:Dictionary[Attributes, AttributeModifierHandler] = {}
 
 # Coins
 @export var maxCoinCount:int = 6
@@ -40,10 +40,13 @@ signal coin_added(coin:Coin)
 signal coin_removed(coin:Coin)
 
 ###---Getters---###
+func get_money() -> float:
+	return money
+
 func get_attribute(attr:Attributes) -> float:
 	var defaultVal:float = baseStats.get(attr, 0)
 	
-	var modifierHandler:ModifierHandler = modifierHandlers.get(attr)
+	var modifierHandler:AttributeModifierHandler = attributeModifierHandlers.get(attr)
 	if modifierHandler:
 		return modifierHandler.get_modified_val(defaultVal)
 	
@@ -51,16 +54,17 @@ func get_attribute(attr:Attributes) -> float:
 
 ###---Setters---###
 func add_money(added_money:float) -> void:
-	money += added_money
+	set_money(money + added_money)
+
+func set_money(new_money:float) -> void:
+	money = new_money
 	money_change.emit(money)
 
 func add_organ(organ:Organ) -> void:
 	organs.append(organ)
-	# Iterate through modifiers
 	for modifier in organ.modifiers:
-		# Adding them to their corresponding ModifierHandler
-		var modifierHandler:ModifierHandler = modifierHandlers.get_or_add(modifier.type, ModifierHandler.new(modifier.type))
-		modifierHandler.add(modifier)
+		add_attribute_modifier(modifier)
+		
 	# Notify change
 	organ._on_added()
 	organ_added.emit(organ)
@@ -68,17 +72,24 @@ func add_organ(organ:Organ) -> void:
 func remove_organ(organ:Organ) -> void:
 	if organs.has(organ):
 		organs.erase(organ)
-		# Iterate through modifiers
+		
 		for modifier in organ.modifiers:
-			# Removing them from their corresponding MoifierHandler
-			var modifierHandler:ModifierHandler = modifierHandlers.get(modifier.type)
-			if !modifierHandler: printerr("Error, modifiers weren't properly initialized and can't get deleted"); return
-			modifierHandler.remove(modifier)
+			remove_attribute_modifier(modifier)
+		
 		# Notify change
 		organ._on_removed()
 		organ_removed.emit(organ)
 	else:
 		printerr("Tried to remove the organ: %s but it doesn't exist in player" % [str(organ)])
+
+func add_attribute_modifier(modifier:AttributeModifier) -> void:
+	var modifierHandler:AttributeModifierHandler = attributeModifierHandlers.get_or_add(modifier.type, AttributeModifierHandler.new(modifier.type))
+	modifierHandler.add(modifier)
+
+func remove_attribute_modifier(modifier:AttributeModifier) -> void:
+	var modifierHandler:AttributeModifierHandler = attributeModifierHandlers.get(modifier.type)
+	if !modifierHandler: printerr("Error, modifiers weren't properly initialized and can't get deleted"); return
+	modifierHandler.remove(modifier)
 
 func add_coin(coin:Coin) -> void:
 	if coins.size() >= maxCoinCount: printerr("Coin %s could not be added because player has already max amount of coins" % [str(coin)]); return

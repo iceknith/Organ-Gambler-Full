@@ -7,7 +7,7 @@ signal remove
 @export var picture:Texture2D
 @export var base_cost:float
 
-@export var modifiers:Array[Modifier]
+@export var modifiers:Array[AttributeModifier]
 
 func _to_string() -> String:
 	return name

@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SimpleBonus" load_steps=6 format=3 uid="uid://bukmcrahiy8ci"]
+
+[ext_resource type="Script" uid="uid://bhwwimegom8lc" path="res://src/utils/bonus_modifiers/bonusModifierMoney.gd" id="1_p8xpx"]
+[ext_resource type="Script" uid="uid://b8dg8u0sjp0ul" path="res://src/utils/bonus_modifiers/bonusModifierOrgan.gd" id="3_8ndnc"]
+[ext_resource type="Script" uid="uid://d263b6a8btpel" path="res://src/objects/bonuses/sub-classes/simpleBonus.gd" id="4_sohb6"]
+
+[sub_resource type="Resource" id="Resource_4l82v"]
+script = ExtResource("1_p8xpx")
+value = 100000.0
+metadata/_custom_type_script = "uid://bhwwimegom8lc"
+
+[sub_resource type="Resource" id="Resource_xu3yr"]
+script = ExtResource("3_8ndnc")
+organ = "Hand"
+value = -0.1
+valueType = 1
+metadata/_custom_type_script = "uid://b8dg8u0sjp0ul"
+
+[resource]
+script = ExtResource("4_sohb6")
+bonus = SubResource("Resource_4l82v")
+malus = SubResource("Resource_xu3yr")
+name = "simpleBonus2"
+description = "Un bonus simple haha"
+rarety = 0.2
+metadata/_custom_type_script = "uid://d263b6a8btpel"

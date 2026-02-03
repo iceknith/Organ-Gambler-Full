@@ -32,6 +32,7 @@ config/icon="res://icon.svg"
 Player="*res://src/player/player.gd"
 OrganLoader="*res://src/objects/organs/organLoader.gd"
 CoinLoader="*res://src/objects/coins/coinLoader.gd"
+BonusLoader="*res://src/objects/bonuses/bonusLoader.gd"
 
 [editor_plugins]
 

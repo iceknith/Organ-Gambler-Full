@@ -1,4 +1,4 @@
-class_name ModifierHandler extends RefCounted
+class_name AttributeModifierHandler extends RefCounted
 
 var type:Player.Attributes
 var flat_attr:Array[float] = [] # Adds flat to value
@@ -8,7 +8,7 @@ var set_attr:Array[float] = [] # Hard sets the value, only the last item of set_
 func _init(type:Player.Attributes) -> void:
 	self.type = type
 
-func add(modif:Modifier) -> void:
+func add(modif:AttributeModifier) -> void:
 	if modif.type != type: 
 		printerr("Invalid Modifier type, expected %s, got %s" % [str(type), str(modif.type)])
 		return
@@ -21,7 +21,7 @@ func add(modif:Modifier) -> void:
 		Modifier.ValueTypes.SET:
 			set_attr.append(modif.value)
 
-func remove(modif:Modifier) -> void:
+func remove(modif:AttributeModifier) -> void:
 	if modif.type != type: 
 		printerr("Invalid Modifier type, expected %s, got %s" % [str(type), str(modif.type)])
 		return

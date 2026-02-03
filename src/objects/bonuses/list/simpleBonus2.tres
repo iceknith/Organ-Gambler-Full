@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SimpleBonus" load_steps=8 format=3 uid="uid://4fmory4aivq2"]
+
+[ext_resource type="Script" uid="uid://c5d0lm580atxu" path="res://src/utils/bonus_modifiers/bonusModifierAttribute.gd" id="1_02bdq"]
+[ext_resource type="Script" uid="uid://d263b6a8btpel" path="res://src/objects/bonuses/sub-classes/simpleBonus.gd" id="1_dlh4n"]
+[ext_resource type="Script" uid="uid://r4s7qms4ni1i" path="res://src/utils/attribute_modifiers/attributeModifier.gd" id="2_l5pvd"]
+[ext_resource type="Script" uid="uid://b8dg8u0sjp0ul" path="res://src/utils/bonus_modifiers/bonusModifierOrgan.gd" id="3_0maju"]
+
+[sub_resource type="Resource" id="Resource_e8eiy"]
+script = ExtResource("2_l5pvd")
+type = 4
+value = 0.2
+metadata/_custom_type_script = "uid://r4s7qms4ni1i"
+
+[sub_resource type="Resource" id="Resource_pxd2n"]
+script = ExtResource("1_02bdq")
+value = SubResource("Resource_e8eiy")
+metadata/_custom_type_script = "uid://c5d0lm580atxu"
+
+[sub_resource type="Resource" id="Resource_xu3yr"]
+script = ExtResource("3_0maju")
+organ = "Hand"
+value = -0.1
+valueType = 1
+metadata/_custom_type_script = "uid://b8dg8u0sjp0ul"
+
+[resource]
+script = ExtResource("1_dlh4n")
+bonus = SubResource("Resource_pxd2n")
+malus = SubResource("Resource_xu3yr")
+name = "simpleBonus1"
+description = "Un bonus simple hihi"
+rarety = 0.4
+metadata/_custom_type_script = "uid://d263b6a8btpel"
