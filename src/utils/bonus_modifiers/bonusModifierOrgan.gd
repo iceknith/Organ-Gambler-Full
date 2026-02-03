@@ -5,4 +5,18 @@ class_name BonusModifierOrgan extends BonusModifier
 @export var valueType:Modifier.ValueTypes
 
 func _apply_bonus() -> void:
-	print("I will do it in the next commit - Dimitri")
+	var change_value:int
+	match valueType:
+		Modifier.ValueTypes.FLAT:
+			change_value = value
+		Modifier.ValueTypes.PERCENTAGE:
+			var organ_count = Player.get_organ_count(organ)
+			change_value = roundi(organ_count * value)
+		Modifier.ValueTypes.SET:
+			var organ_count = Player.get_organ_count(organ)
+			change_value = value - organ_count
+	
+	if change_value >= 0:
+		Player.add_organs(organ, value)
+	else:
+		Player.remove_organs(organ, -value)

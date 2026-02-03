@@ -52,6 +52,12 @@ func get_attribute(attr:Attributes) -> float:
 	
 	return defaultVal
 
+func get_organ_count(organ_name:String) -> int:
+	var count:int = 0
+	for organ in organs: 
+		if organ.name == organ_name: count += 1
+	return count
+
 ###---Setters---###
 func add_money(added_money:float) -> void:
 	set_money(money + added_money)
@@ -80,7 +86,33 @@ func remove_organ(organ:Organ) -> void:
 		organ._on_removed()
 		organ_removed.emit(organ)
 	else:
-		printerr("Tried to remove the organ: %s but it doesn't exist in player" % [str(organ)])
+		printerr("Tried to remove the organ \"%s\" but none was found" % [str(organ)])
+
+func add_organs(organ_name:String, amount:int = 1) -> void:
+	for i in amount:
+		var organ:Organ = OrganLoader.get_organ(organ_name)
+		if organ: add_organ(organ)
+
+func remove_organs(organ_name:String, amount:int = 1) -> void:
+	var original_amount:int = amount
+	
+	for i in organs.size():
+		if organs[i].name == organ_name:
+			var organ = organs[i]
+			organs.remove_at(i)
+			for modifier in organ.modifiers:
+				remove_attribute_modifier(modifier)
+			
+			# Notify change
+			organ._on_removed()
+			organ_removed.emit(organ)
+			
+			# Decrement
+			amount -= 1
+			if amount <= 0: return
+	
+	printerr("Could not remove %i \"%s\", %i were found and removed" % 
+		[original_amount, organ_name, original_amount - amount])
 
 func add_attribute_modifier(modifier:AttributeModifier) -> void:
 	var modifierHandler:AttributeModifierHandler = attributeModifierHandlers.get_or_add(modifier.type, AttributeModifierHandler.new(modifier.type))
@@ -121,11 +153,10 @@ func _ready() -> void:
 	load_default_coins()
 
 func load_default_organs() -> void:
-	for organName:String in defaultOrgans:
-		var organ:Organ = OrganLoader.get_organ(organName)
-		if organ: add_organ(organ)
+	for organ_name:String in defaultOrgans:
+		add_organs(organ_name)
 
 func load_default_coins() -> void:
-	for coinName:String in defaultCoins:
-		var coin:Coin = CoinLoader.get_coin(coinName)
+	for coin_name:String in defaultCoins:
+		var coin:Coin = CoinLoader.get_coin(coin_name)
 		if coin: add_coin(coin)
