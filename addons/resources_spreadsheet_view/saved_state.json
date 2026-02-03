@@ -1,0 +1,68 @@
+{
+  "column_properties": {
+    "res://addons/resources_spreadsheet_view/example/Items/items/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
+    "res://example/Items/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "name": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      },
+      "resource_path": {
+        "visibility": 1.0
+      }
+    },
+    "res://src/objects/organs/list/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0
+      },
+      "resource_name": {
+        "visibility": 0
+      }
+    },
+    "res://src/objects/organs/organs-list/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    }
+  },
+  "recent_paths": [
+    "res://example/Items/",
+    "res://addons/resources_spreadsheet_view/example/Items/items/",
+    "res://src/objects/organs/organs-list/",
+    "res://src/objects/organs/list/"
+  ],
+  "table_functions": {
+    "filter": [
+      "return true"
+    ],
+    "process": [
+      "return value"
+    ]
+  }
+}
