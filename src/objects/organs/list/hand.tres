@@ -10,8 +10,9 @@ metadata/_custom_type_script = "uid://r4s7qms4ni1i"
 
 [resource]
 script = ExtResource("2_ok16s")
-name = "Hand"
-description = "Allows you to make 1 more toss"
 base_cost = 1.0
 modifiers = Array[ExtResource("1_qahh2")]([SubResource("Resource_qahh2")])
+name = "Hand"
+description = "Allows you to make 1 more toss"
+weight = 1.0
 metadata/_custom_type_script = "uid://bj73u7n2cj046"

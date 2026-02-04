@@ -29,5 +29,4 @@ bonus = SubResource("Resource_pxd2n")
 malus = SubResource("Resource_xu3yr")
 name = "simpleBonus1"
 description = "Un bonus simple hihi"
-rarety = 0.4
 metadata/_custom_type_script = "uid://d263b6a8btpel"

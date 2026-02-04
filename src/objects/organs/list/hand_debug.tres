@@ -24,8 +24,9 @@ metadata/_custom_type_script = "uid://r4s7qms4ni1i"
 
 [resource]
 script = ExtResource("2_qujol")
-name = "HandDebug"
-description = "Lorem Ipsum"
 base_cost = 50.0
 modifiers = Array[ExtResource("1_u73xc")]([SubResource("Resource_qahh2"), SubResource("Resource_u73xc"), SubResource("Resource_qujol")])
+name = "HandDebug"
+description = "Lorem Ipsum"
+weight = 2.0
 metadata/_custom_type_script = "uid://bj73u7n2cj046"

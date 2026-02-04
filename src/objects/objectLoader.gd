@@ -32,7 +32,7 @@ func get_object(name: StringName) -> Object:
 	return null
 
 func get_random_object() -> Object:
-	var names:Array[String] = objectsProba.keys()
-	var proba:Array[float] = objectsProba.values()
+	var names:Array = objectsProba.keys()
+	var proba:Array = objectsProba.values()
 	var pickedObj:int = randomGenerator.rand_weighted(proba)
-	return load(objects.get(names[pickedObj])) 
+	return load(objects.get(names[pickedObj]))
