@@ -5,7 +5,8 @@
 [resource]
 script = ExtResource("1_m27os")
 valueHeads = 1.0
+durability = -1.0
+base_cost = 1.0
 name = "SimpleCoin"
 description = "The simplest coin"
-durability = -1.0
 metadata/_custom_type_script = "uid://7083qkrbff1n"
