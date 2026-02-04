@@ -10,7 +10,7 @@ metadata/_custom_type_script = "uid://r4s7qms4ni1i"
 
 [resource]
 script = ExtResource("2_du5yp")
+modifiers = Array[ExtResource("1_jlaom")]([SubResource("Resource_jlaom")])
 name = "Teeth"
 description = "Single Use Hand"
-modifiers = Array[ExtResource("1_jlaom")]([SubResource("Resource_jlaom")])
 metadata/_custom_type_script = "uid://cxxvi0e2pmw7n"
