@@ -5,7 +5,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
-	Player.add_organ(OrganLoader.get_organ("HandDebug"))
-	Player.add_organ(OrganLoader.get_organ("HandDebug"))
+	Player.add_organ(OrganLoader.get_object("HandDebug"))
+	Player.add_organ(OrganLoader.get_object("HandDebug"))
 	print(Player.get_attribute(Player.Attributes.COINS_TOSSED))
 	print(Player.get_attribute(Player.Attributes.ROUNDS))

@@ -33,6 +33,7 @@ Player="*res://src/player/player.gd"
 BonusLoader="*res://src/objects/bonuses/bonusLoader.tscn"
 CoinLoader="*res://src/objects/coins/coinLoader.tscn"
 OrganLoader="*res://src/objects/organs/organLoader.tscn"
+GameData="*res://src/game_datas/gameData.gd"
 
 [editor_plugins]
 
