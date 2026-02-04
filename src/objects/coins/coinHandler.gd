@@ -1,27 +1,37 @@
 class_name coinHandler extends RefCounted
 #Instantiate and manages the coins.
 
+# Screen limits & offsets
+var window_height = ProjectSettings.get_setting("display/window/size/viewport_height")
+var window_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+
+var offset_spawn_x:Vector2 = Vector2(50, -50)
+var offset_spawn_y:Vector2 = Vector2(50, -50)
+
+# Coins
+var coins_to_toss:int
+var coins_landed:int
+
+var total_outcome:float
+
+func _ready() -> void:
+	# COMMENT RECUPERER LE SIGNAL DES PIECES QUI SONT INSTANCIEES?
+	#coinVisual.landed.connect(coin_landed)
+	pass
+
 
 func playHands() -> float:
 	#  Player.coins[0] is choosen to be the current coin 
-	# TODO implementer current_coin dans player 
+	# TODO implement current_coin 
 	var current_coint = Player.coins[0]
 	var outcome:float = 0
+	coins_to_toss = Player.get_attribute(Player.Attributes.COINS_TOSSED)
 	
-	# cree un objet coin, je l'instanceie (packed scene) --> connecter a tt les trucs 
-	var random = RandomNumberGenerator.new()
-	for coin in Player.get_attribute(Player.Attributes.COINS_TOSSED):
-	# Evaluate the outcome of the current coin
-		var coin_tossed_luck = current_coint.luck + Player.get_attribute(Player.Attributes.LUCK)
-		
-		if(coin_tossed_luck > random.randf_range(0.0,100.0)):
-			outcome += current_coint._on_tails()
-		else:
-			outcome += current_coint._on_heads()
-		
-		#coin instantiation
-		var pos_x= random.randi_range(0,ProjectSettings.get_setting("display/window/size/viewport_width"))
-		var pos_y = random.randi_range(0,ProjectSettings.get_setting("display/window/size/viewport_height"))
+	for coin in coins_to_toss:
+
+		var random = RandomNumberGenerator.new()
+		var pos_x= random.randi_range(offset_spawn_x[0],window_width+offset_spawn_x[1])
+		var pos_y = random.randi_range(offset_spawn_y[0],window_height+offset_spawn_y[1])
 		spawn_coin(current_coint,Vector2(pos_x,pos_y))
 	
 	#subtracts durability
@@ -29,5 +39,18 @@ func playHands() -> float:
 	
 	return outcome;
 
+#Instantiate coin
 func spawn_coin(coin_data:Coin, spawn_position:Vector2)->void:
+	#cree la scene a partir de coinVisual 
+	
+	# donne les infos de currents coin a la scene
+	
+	# On l'ajoute à l'arbre
+	
 	pass
+
+func coin_landed() -> void:
+	coins_landed +=1
+	#coins_to_toss+= . . .
+	if coins_landed >=coins_to_toss:
+		pass
