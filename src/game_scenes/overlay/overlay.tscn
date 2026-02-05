@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://6r4y1jj4bocd"]
+
+[ext_resource type="Script" uid="uid://o0j857p4mbx8" path="res://src/game_scenes/overlay/overlay.gd" id="1_uox4a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_egtt5"]
+font_size = 20
+
+[node name="Overlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uox4a")
+
+[node name="TextContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Money" type="Label" parent="TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_egtt5")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Seperator" type="Label" parent="TextContainer"]
+layout_mode = 2
+text = "/"
+label_settings = SubResource("LabelSettings_egtt5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Objective" type="Label" parent="TextContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_egtt5")
+vertical_alignment = 1

@@ -9,3 +9,6 @@ func _ready() -> void:
 	Player.add_organ(OrganLoader.get_object("HandDebug"))
 	print(Player.get_attribute(Player.Attributes.COINS_TOSSED))
 	print(Player.get_attribute(Player.Attributes.ROUNDS))
+	
+	Player.money += 6
+	Player.money *= 6

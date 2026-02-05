@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutv72445v5ul"]
+
+[ext_resource type="Script" uid="uid://c7avgttkxqe1l" path="res://src/game_scenes/main/main.gd" id="1_b4anw"]
+[ext_resource type="PackedScene" uid="uid://6r4y1jj4bocd" path="res://src/game_scenes/overlay/overlay.tscn" id="2_3j4ov"]
+[ext_resource type="PackedScene" uid="uid://b0yybq7ngnwhv" path="res://src/test/test.tscn" id="3_rmpdw"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_b4anw")
+
+[node name="Overlay" parent="." instance=ExtResource("2_3j4ov")]
+
+[node name="Test" parent="." instance=ExtResource("3_rmpdw")]

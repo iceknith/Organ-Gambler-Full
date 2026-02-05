@@ -1,7 +1,7 @@
 class_name Shop extends Control
 
-var price_multiplier:float = 1
-var flat_price_increase:float = 0
+@export var price_multiplier:float = 1
+@export var flat_price_increase:float = 0
 var items_bought:int = 0
 
 @export var organs_inventory_size:int = 6

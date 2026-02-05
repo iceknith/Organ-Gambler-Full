@@ -11,7 +11,12 @@ enum Attributes {
 }
 
 ###---Variables---###
-@export var money:float = 0
+@export var money:float = 0:
+	set(new_money):
+		money = new_money
+		money_change.emit(money)
+	get(): 
+		return money
 @export var baseStats:Dictionary[Attributes,float] = {
 	Attributes.LUCK : 1
 } # All of the others attributes are initialized to 0
@@ -40,9 +45,6 @@ signal coin_added(coin:Coin)
 signal coin_removed(coin:Coin)
 
 ###---Getters---###
-func get_money() -> float:
-	return money
-
 func get_attribute(attr:Attributes) -> float:
 	var defaultVal:float = baseStats.get(attr, 0)
 	
@@ -59,13 +61,6 @@ func get_organ_count(organ_name:String) -> int:
 	return count
 
 ###---Setters---###
-func add_money(added_money:float) -> void:
-	set_money(money + added_money)
-
-func set_money(new_money:float) -> void:
-	money = new_money
-	money_change.emit(money)
-
 func add_organ(organ:Organ) -> void:
 	organs.append(organ)
 	for modifier in organ.modifiers:

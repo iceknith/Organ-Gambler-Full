@@ -24,6 +24,7 @@ resources_spreadsheet_view/freeze_first_column=true
 [application]
 
 config/name="Organ Gambler Full"
+run/main_scene="uid://dutv72445v5ul"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

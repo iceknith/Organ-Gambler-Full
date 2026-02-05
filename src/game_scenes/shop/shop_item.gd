@@ -19,4 +19,3 @@ func load_organ(organ:Organ, price:float) -> void:
 
 func _on_button_pressed() -> void:
 	buy.emit()
-	pass # Replace with function body.
