@@ -8,7 +8,7 @@ signal try_to_buy()
 func _ready():
 	#$Button.pressed().connect(try_to_buy)
 	
-	visible = false
+	#visible = false
 	pass
 
 
