@@ -5,15 +5,29 @@ class_name Shop extends Control
 var items_bought:int = 0
 
 @export var organs_inventory_size:int = 6
-var organs_inventory:Array[Organ]
-var organs_inventory_price:Array[float]
+var organs_inventory:Array[ShopItemOrgan]
 
 @export var coins_inventory_size:int = 6
 var coins_inventory:Array[Coin]
 var coins_inventory_price:Array[float]
 
+var organ_scene = preload("res://src/game_scenes/shop/shopItemOrgan.tscn")
+
+
 func _ready():
+
+	load_shop()
 	restock()
+
+func load_shop() -> void:
+	
+	organs_inventory.clear()
+	
+	for index in range(organs_inventory_size):
+		var item_box = organ_scene.instantiate()
+		$OrganContainer.add_child(item_box)
+		organs_inventory.append(item_box)
+
 
 func restock():
 	restock_organs()
@@ -21,17 +35,16 @@ func restock():
 
 func restock_organs() -> void:
 	
-	organs_inventory.clear()
-	organs_inventory_price.clear()
+	var shop_item:ShopItemOrgan
 	var current_organ:Organ
 	
 	for index in range(organs_inventory_size):
 		#séléction d'un organe et calcul du prix
+		shop_item = organs_inventory[index]
 		current_organ = OrganLoader.get_random_object()
-		organs_inventory.append(current_organ)
-		organs_inventory_price.append(calculate_price_organ(index))
+		shop_item.load_organ(current_organ,calculate_price_organ(current_organ))
 
-		print("slot {0}: {1} {2}$".format([index, organs_inventory[index], str(organs_inventory_price[index])]))
+		print("slot {0}: {1} {2}$".format([index, organs_inventory[index].item, organs_inventory[index].cost]))
 
 func restock_coins() -> void:
 	
@@ -48,8 +61,8 @@ func restock_coins() -> void:
 
 		print("slot {0}: {1} {2}$".format([index, coins_inventory[index], str(coins_inventory_price[index])]))
 
-func calculate_price_organ(index:int) -> float:
-	var base:float = organs_inventory[index].base_cost
+func calculate_price_organ(organ:Organ) -> float:
+	var base:float = organ.base_cost
 	var wave:int = GameData.wave
 	var bought:int = items_bought
 	var price:float = base + (2 + base * bought) * max(0, wave - 3)

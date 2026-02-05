@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwvxtkgmj65j"]
+
+[ext_resource type="PackedScene" uid="uid://du4srnlwksosp" path="res://src/game_scenes/shop/shopItem.tscn" id="1_megjr"]
+[ext_resource type="Script" uid="uid://cos51gl7i2nbb" path="res://src/game_scenes/shop/shop_item_organ.gd" id="2_jy0rg"]
+
+[node name="ShopItem" instance=ExtResource("1_megjr")]
+script = ExtResource("2_jy0rg")
+item = null

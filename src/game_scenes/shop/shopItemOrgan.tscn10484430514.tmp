@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://fwvxtkgmj65j"]
+
+[ext_resource type="PackedScene" uid="uid://du4srnlwksosp" path="res://src/game_scenes/shop/shopItem.tscn" id="1_megjr"]
+
+[sub_resource type="GDScript" id="GDScript_megjr"]
+script/source = "class_name ShopItemOrgan extends ShopItem
+
+@export var item:Organ
+
+func load_organ(organ:Organ, price:float) -> void:
+	item = organ
+	cost = price
+	#$Button.icon = Organ.picture
+	$Button.text = item.name
+	$Button.tooltip_text = \"%s\\n%s\\n%s\".format([item.name, item.description, price])
+"
+
+[node name="ShopItem" instance=ExtResource("1_megjr")]
+script = SubResource("GDScript_megjr")
+item = null
