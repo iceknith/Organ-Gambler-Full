@@ -9,8 +9,10 @@ script = ExtResource("1_0npe2")
 
 [node name="OrganContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
+alignment = 1
 
 [node name="CoinContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_top = 4.0
-offset_bottom = 4.0
+offset_left = 4.0
+offset_right = 4.0
+offset_bottom = 208.0
