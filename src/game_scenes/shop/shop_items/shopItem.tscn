@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://du4srnlwksosp"]
-
-[ext_resource type="Script" uid="uid://d1osp44yuip02" path="res://src/game_scenes/shop/shop_items/shop_item.gd" id="1_qrxw8"]
+[gd_scene load_steps=0 format=3 uid="uid://c8fa3kgbigp78"]
 
 [node name="ShopItem" type="Control"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -75.0
+offset_right = 75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qrxw8")
 
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)

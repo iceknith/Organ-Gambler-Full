@@ -11,17 +11,15 @@ var organs_inventory:Array[ShopItemOrgan]
 var coins_inventory:Array[Coin]
 var coins_inventory_price:Array[float]
 
-@onready var shop_organ_scene:PackedScene = preload("res://src/game_scenes/shop/shopItemOrgan.tscn")
+@onready var shop_organ_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/shopItemOrgan.tscn")
 
 
 func _ready():
-
 	load_shop()
 	restock()
 
 func load_shop() -> void:
-
-	
+	print("hey")
 	var shop_instance:Node
 	
 	for index in range(organs_inventory_size):
