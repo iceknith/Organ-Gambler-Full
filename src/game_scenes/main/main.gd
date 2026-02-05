@@ -1,13 +1,21 @@
-extends Node
+# Is a singleton
+class_name Main extends Node
+
+static var main:Main = null:
+	get(): 
+		if main == null: push_error("Main not instantiated !")
+		return main 
+	set(new_main): return # Delete the set
 
 @export var scenes:Dictionary[String, SceneTransition]
 @export var firstScene:String
 var sceneHistory:Array[String]
-
 var tween:Tween
 
 # Initialization functions
-func _init() -> void:
+func _ready() -> void:
+	if main != null: push_error("Main already instantiated"); return
+	main = self
 	initialize_scenes()
 
 func initialize_scenes():
