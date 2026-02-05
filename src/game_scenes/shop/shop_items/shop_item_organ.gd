@@ -7,4 +7,4 @@ func load_organ(organ:Organ, price:float) -> void:
 	cost = price
 	#$Button.icon = Organ.picture
 	$Button.text = item.name
-	$Button.tooltip_text = "%s\n%s\n%s".format([item.name, item.description, price])
+	$Button.tooltip_text = "{0}\n{1}\n{2}".format([item.name, item.description, price])

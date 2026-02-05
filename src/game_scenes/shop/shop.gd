@@ -37,16 +37,16 @@ func restock():
 
 func restock_organs() -> void:
 	
-#	var shop_item:ShopItemOrgan
+	var shop_item:ShopItemOrgan
 	var current_organ:Organ
 	
 	for index in range(organs_inventory_size):
 		#séléction d'un organe et calcul du prix
-		#shop_item = organs_inventory[index]
+		shop_item = organs_inventory[index]
 		current_organ = OrganLoader.get_random_object()
-		#shop_item.load_organ(current_organ,calculate_price_organ(current_organ))
+		shop_item.load_organ(current_organ,calculate_price_organ(current_organ))
 
-		#print("slot {0}: {1} {2}$".format([index, organs_inventory[index].item, organs_inventory[index].cost]))
+		print("slot {0}: {1} {2}$".format([index, organs_inventory[index].item, organs_inventory[index].cost]))
 
 func restock_coins() -> void:
 	

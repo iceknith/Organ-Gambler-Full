@@ -3,14 +3,15 @@
 
 @export var cost:float
 
-signal try_to_buy()
 
 func _ready():
-	#$Button.pressed().connect(try_to_buy)
 	
-	visible = false
+	visible = true
 	pass
 
 
-func load_item(price:float) -> void:
+func load_price(price:float) -> void:
 	cost = price
+
+func buy() -> void:
+	pass
