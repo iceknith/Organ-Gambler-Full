@@ -10,3 +10,5 @@ script = ExtResource("1_b4anw")
 [node name="Overlay" parent="." instance=ExtResource("2_3j4ov")]
 
 [node name="Test" parent="." instance=ExtResource("3_rmpdw")]
+
+[node name="GameScenes" type="Node" parent="."]
