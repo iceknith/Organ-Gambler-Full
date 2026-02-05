@@ -1,20 +1,16 @@
 @abstract class_name ShopItem extends Control
 
-var item:Organ
-var cost:float
 
-signal buy()
+@export var cost:float
+
+signal try_to_buy()
 
 func _ready():
+	#$Button.pressed().connect(try_to_buy)
+	
+	visible = false
 	pass
 
-func load_organ(organ:Organ, price:float) -> void:
-	item = organ
+
+func load_item(price:float) -> void:
 	cost = price
-	#$Button.icon = load(Organ.picture)
-	$Button.text = item.name
-	$Button.tooltip_text = "%s\n%s\n%s".format([item.name, item.description, price])
-
-
-func _on_button_pressed() -> void:
-	buy.emit()
