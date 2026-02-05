@@ -1,4 +1,4 @@
-class_name BonusModifierOrgan extends BonusModifier
+@tool class_name BonusModifierOrgan extends BonusModifier
 
 @export var organ:String
 @export var value:float
@@ -20,3 +20,9 @@ func _apply_bonus() -> void:
 		Player.add_organs(organ, value)
 	else:
 		Player.remove_organs(organ, -value)
+
+###---Editor Stuff---###
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "organ":
+		property.hint = PROPERTY_HINT_ENUM
+		property.hint_string = ",".join(OrganLoader.get_objects_names())

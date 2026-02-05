@@ -1,4 +1,4 @@
-class_name ShopItem extends Control
+@abstract class_name ShopItem extends Control
 
 var item:Organ
 var cost:float
@@ -7,7 +7,6 @@ signal buy()
 
 func _ready():
 	pass
-
 
 func load_organ(organ:Organ, price:float) -> void:
 	item = organ

@@ -24,7 +24,7 @@ scene = ExtResource("5_6wpp0")
 transition_ease = 1
 transition_type = 9
 transition_duration = 1.0
-invert_transition_type = 10
+invert_transition_type = 5
 invert_transition_duration = 0.7
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 

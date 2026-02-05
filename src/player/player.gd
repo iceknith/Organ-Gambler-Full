@@ -1,4 +1,5 @@
-extends Node
+@tool class_name PlayerObject extends Node
+
 
 ###---Constants---###
 enum Attributes {
@@ -23,7 +24,6 @@ enum Attributes {
 
 # Organs
 @export var defaultOrgans:Array[String] = [
-	"Hand", "Hand"
 ]
 var organs:Array[Organ]
 
@@ -33,7 +33,6 @@ var attributeModifierHandlers:Dictionary[Attributes, AttributeModifierHandler] =
 # Coins
 @export var maxCoinCount:int = 6
 @export var defaultCoins:Array[String] = [
-	"SimpleCoin"
 ]
 var coins:Array[Coin]
 
@@ -138,6 +137,9 @@ func remove_coin(coin:Coin) -> void:
 
 # Initialisation functions
 func _ready() -> void:
+	# Insta quit if is in editor
+	if Engine.is_editor_hint(): return
+	
 	# Wait for the ressources to be loaded
 	await get_tree().process_frame
 	
@@ -155,3 +157,12 @@ func load_default_coins() -> void:
 	for coin_name:String in defaultCoins:
 		var coin:Coin = CoinLoader.get_object(coin_name)
 		if coin: add_coin(coin)
+
+###---Editor Stuff---###
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "defaultOrgans":
+		property.hint_string = \
+			str(TYPE_STRING) + "/" + str(PROPERTY_HINT_ENUM) + ":" + ",".join(OrganLoader.get_objects_names())
+	if property.name == "defaultCoins":
+		property.hint_string = \
+			str(TYPE_STRING) + "/" + str(PROPERTY_HINT_ENUM) + ":" + ",".join(CoinLoader.get_objects_names())

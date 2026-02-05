@@ -1,6 +1,6 @@
 class_name AttributeModifier extends Resource
 
-@export var type:Player.Attributes
+@export var type:PlayerObject.Attributes
 @export var value:float
 @export var valueType:Modifier.ValueTypes
 

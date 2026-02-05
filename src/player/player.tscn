@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwgktumbjpp3"]
+
+[ext_resource type="Script" uid="uid://bes63j1dq60g1" path="res://src/player/player.gd" id="1_4anbu"]
+
+[node name="Player" type="Node"]
+script = ExtResource("1_4anbu")
+defaultOrgans = Array[String](["Hand", "Hand"])
+defaultCoins = Array[String](["SimpleCoin"])
