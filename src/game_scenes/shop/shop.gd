@@ -19,13 +19,12 @@ func _ready():
 	restock()
 
 func load_shop() -> void:
-	print("hey")
-	var shop_instance:Node
+	var shop_instance:Control
 	
 	for index in range(organs_inventory_size):
 		shop_instance = shop_organ_scene.instantiate()
-		print(shop_instance)
 		$OrganContainer.add_child(shop_instance)
+		shop_instance.show()
 		organs_inventory.append(shop_instance)
 	
 	print(organs_inventory)
