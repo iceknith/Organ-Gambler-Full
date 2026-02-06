@@ -10,7 +10,7 @@ offset_bottom = 100.0
 [node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_right = 65.0
-offset_bottom = 31.0
+offset_right = 100.0
+offset_bottom = 100.0
 tooltip_text = "Default"
 text = "Default"

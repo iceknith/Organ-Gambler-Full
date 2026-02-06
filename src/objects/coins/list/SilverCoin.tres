@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://cm2p0f5uqino0"]
+
+[ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_wordi"]
+
+[resource]
+script = ExtResource("1_wordi")
+valueHeads = 3.0
+valueTails = 1.0
+durability = 2.0
+base_cost = 5.0
+luck = 0.7
+name = "SilverCoin"
+description = "A valuable coin"
+weight = 1.0
+metadata/_custom_type_script = "uid://7083qkrbff1n"

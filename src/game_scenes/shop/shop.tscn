@@ -13,13 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0npe2")
 reroll_left = 5
-organs_inventory_size = 8
-coins_inventory_size = 4
+coins_inventory_size = 3
 
 [node name="ItemContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1100, 0)
 layout_mode = 0
+offset_left = 25.0
 offset_top = 100.0
-offset_right = 100.0
+offset_right = 1125.0
 offset_bottom = 208.0
 alignment = 1
 

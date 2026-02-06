@@ -30,11 +30,14 @@ func load_coin(new_coin:Coin) -> void:
 
 func try_to_buy() -> void:
 	#super.try_to_buy seulement si l'inventaire de coin n'est pas plein
-	super.try_to_buy()
-	pass
+	if Player.get_total_coin_count() < Player.maxCoinCount:
+		super.try_to_buy()
+	else:
+		printerr("Inventaire de coin plein")
 
 func bought():
 	super.bought()
 	#ajout du coin à l'inventaire
+	Player.add_coin(coin)
 	set("coin",null)
 	pass

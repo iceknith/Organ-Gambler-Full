@@ -30,5 +30,6 @@ func load_organ(new_organ:Organ) -> void:
 func bought():
 	super.bought()
 	#ajout de l'organe à l'inventaire
+	Player.organs.append(organ)
 	set("organ",null)
 	pass
