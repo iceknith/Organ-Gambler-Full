@@ -2,6 +2,9 @@ class_name Shop extends Control
 
 @export var cost_multiplier:float = 1
 @export var flat_cost_increase:float = 0
+@export var reroll_left:int = 3
+
+#total sur toute la partie
 var items_bought:int = 0
 var reroll:int = 0
 
@@ -16,6 +19,7 @@ var coins_inventory:Array[ShopItemCoin]
 
 func _ready():
 	load_shop()
+	$ItemContainer/RerollButton.pressed.connect(reroll_shop)
 	restock()
 
 func load_shop() -> void:
@@ -91,3 +95,9 @@ func calculate_cost_coin(coin:Coin) -> float:
 	var cost:float = base + (2 + base * bought) * max(0, wave - 3)
 	cost = (cost + flat_cost_increase) * cost_multiplier 
 	return cost
+	
+func reroll_shop():
+	if reroll_left > 0:
+		reroll_left -= 1
+		reroll += 1
+		restock()
