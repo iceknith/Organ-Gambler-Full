@@ -4,5 +4,6 @@
 
 [node name="Player" type="Node"]
 script = ExtResource("1_4anbu")
+money = 100.0
 defaultOrgans = Array[String](["Hand", "Hand"])
 defaultCoins = Array[String](["SimpleCoin"])

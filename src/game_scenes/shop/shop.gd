@@ -1,18 +1,18 @@
 class_name Shop extends Control
 
-@export var price_multiplier:float = 1
-@export var flat_price_increase:float = 0
+@export var cost_multiplier:float = 1
+@export var flat_cost_increase:float = 0
 var items_bought:int = 0
+var reroll:int = 0
 
 @export var organs_inventory_size:int = 6
 var organs_inventory:Array[ShopItemOrgan]
 
 @export var coins_inventory_size:int = 6
-var coins_inventory:Array[Coin]
-var coins_inventory_price:Array[float]
+var coins_inventory:Array[ShopItemCoin]
 
 @onready var shop_organ_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/shopItemOrgan.tscn")
-
+@onready var shop_coin_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/shopItemCoin.tscn")
 
 func _ready():
 	load_shop()
@@ -23,57 +23,71 @@ func load_shop() -> void:
 	
 	for index in range(organs_inventory_size):
 		shop_instance = shop_organ_scene.instantiate()
-		$OrganContainer.add_child(shop_instance)
+		$ItemContainer/OrganContainer.add_child(shop_instance)
 		shop_instance.show()
 		organs_inventory.append(shop_instance)
-	
-	print(organs_inventory)
+		
+	for index in range(coins_inventory_size):
+		shop_instance = shop_coin_scene.instantiate()
+		$ItemContainer/CoinContainer.add_child(shop_instance)
+		shop_instance.show()
+		coins_inventory.append(shop_instance)
 
 
 func restock():
-	restock_organs()
-	restock_coins()
+	restock_all_organs()
+	restock_all_coins()
 
-func restock_organs() -> void:
-	
-	var shop_item:ShopItemOrgan
-	var current_organ:Organ
+func restock_all_organs() -> void:
 	
 	for index in range(organs_inventory_size):
-		#séléction d'un organe et calcul du prix
-		shop_item = organs_inventory[index]
-		current_organ = OrganLoader.get_random_object()
-		shop_item.load_organ(current_organ,calculate_price_organ(current_organ))
+		restock_organ(index)
 
-		print("slot {0}: {1} {2}$".format([index, organs_inventory[index].item, organs_inventory[index].cost]))
+func restock_organ(index:int) -> void:
+	var shop_item:ShopItemOrgan
+	var random_organ:Organ
+	var cost:float
 
-func restock_coins() -> void:
+	#séléction d'un organe et calcul du prix
+	shop_item = organs_inventory[index]
+	random_organ = OrganLoader.get_random_object()
+	cost = calculate_cost_organ(random_organ)
+	shop_item.set("organ", random_organ)
+	shop_item.set("cost", cost)
 	
-	coins_inventory.clear()
-	coins_inventory_price.clear()
-	var current_coin:Coin
+	print("{0} {1} {2}$\n".format([random_organ.name,random_organ.description,cost]))
+
+func restock_all_coins() -> void:
 	
 	for index in range(coins_inventory_size):
-		#séléction d'un coin et calcul du prix
-		current_coin = CoinLoader.get_random_object()
-		coins_inventory.append(current_coin)
+		restock_coin(index)
 
-		coins_inventory_price.append(calculate_price_coin(index))
+func restock_coin(index:int) -> void:
+	var shop_item:ShopItemCoin
+	var random_coin:Coin
+	var cost:float
 
-		print("slot {0}: {1} {2}$".format([index, coins_inventory[index], str(coins_inventory_price[index])]))
+	#séléction d'un coin et calcul du prix
+	shop_item = coins_inventory[index]
+	random_coin = CoinLoader.get_random_object()
+	cost = calculate_cost_coin(random_coin)
+	shop_item.set("coin", random_coin)
+	shop_item.set("cost", cost)
+	
+	print("{0} {1} {2}$\n".format([random_coin.name,random_coin.description,cost]))
 
-func calculate_price_organ(organ:Organ) -> float:
+func calculate_cost_organ(organ:Organ) -> float:
 	var base:float = organ.base_cost
 	var wave:int = GameData.wave
 	var bought:int = items_bought
-	var price:float = base + (2 + base * bought) * max(0, wave - 3)
-	price = (price + flat_price_increase) * price_multiplier 
-	return price
+	var cost:float = base + (2 + base * bought) * max(0, wave - 3)
+	cost = (cost + flat_cost_increase) * cost_multiplier 
+	return cost
 
-func calculate_price_coin(index:int) -> float:
-	var base:float = coins_inventory[index].base_cost
+func calculate_cost_coin(coin:Coin) -> float:
+	var base:float = coin.base_cost
 	var wave:int = GameData.wave
 	var bought:int = items_bought
-	var price:float = base + (2 + base * bought) * max(0, wave - 3)
-	price = (price + flat_price_increase) * price_multiplier 
-	return price
+	var cost:float = base + (2 + base * bought) * max(0, wave - 3)
+	cost = (cost + flat_cost_increase) * cost_multiplier 
+	return cost
