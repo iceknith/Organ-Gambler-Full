@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://jb4fav4bu744"]
+[gd_scene load_steps=4 format=3 uid="uid://jb4fav4bu744"]
 
 [ext_resource type="Script" uid="uid://vbeqtub1cxud" path="res://src/game_scenes/stats/stats.gd" id="1_habpo"]
+[ext_resource type="Texture2D" uid="uid://bixpcax2l3df6" path="res://icon.svg" id="2_6o8qp"]
+[ext_resource type="Script" uid="uid://npxvdowu7rtg" path="res://src/game_scenes/stats/organ_display_container.gd" id="2_plk11"]
 
 [node name="Stats" type="Control"]
 layout_mode = 3
@@ -79,12 +81,16 @@ color = Color(0.12591085, 0.12591085, 0.12591082, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="OrgansContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
+columns = 7
+script = ExtResource("2_plk11")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer/MarginContainer/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer/MarginContainer/OrgansContainer"]
 layout_mode = 2
+texture = ExtResource("2_6o8qp")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

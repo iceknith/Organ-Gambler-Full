@@ -3,7 +3,6 @@ class_name coinHandler extends Node2D
 #after instantiation of a coin, wait for a reponce, when all responce gatherd send signal to player and crear the scene tree
 
 func _ready() -> void:
-	print("debug?")
 	playHands()
 
 ###---Signals---#
@@ -41,7 +40,7 @@ func playHands() -> void:
 	
 	for coin in coins_to_toss:
 		#debug
-		print("Coin" + str(current_coin.name)+" instantiated")
+		#print("Coin" + str(current_coin.name)+" instantiated")
 
 		var random = RandomNumberGenerator.new()
 		var pos_x= random.randf_range(offset_spawn_x[0],window_width+offset_spawn_x[1])
@@ -81,7 +80,7 @@ func end_round() -> void:
 	
 	hands_finished.emit(total_outcome)
 	#debug
-	print("Total outcome: "+ str(total_outcome))
+	#print("Total outcome: "+ str(total_outcome))
 	
 	#After X seconds, free all instantiated coins
 	#TODO : streamline the destruction of the old coins
