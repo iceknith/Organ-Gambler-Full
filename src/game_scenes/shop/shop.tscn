@@ -4,15 +4,34 @@
 
 [node name="Shop" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_0npe2")
+reroll_left = 5
+coins_inventory_size = 3
 
-[node name="OrganContainer" type="HBoxContainer" parent="."]
+[node name="ItemContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1100, 0)
 layout_mode = 0
+offset_left = 25.0
+offset_top = 100.0
+offset_right = 1125.0
+offset_bottom = 208.0
 alignment = 1
 
-[node name="CoinContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 4.0
-offset_right = 4.0
-offset_bottom = 208.0
+[node name="OrganContainer" type="HBoxContainer" parent="ItemContainer"]
+layout_mode = 2
+
+[node name="CoinContainer" type="HBoxContainer" parent="ItemContainer"]
+layout_mode = 2
+
+[node name="RerollButton" type="Button" parent="ItemContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Reroll"

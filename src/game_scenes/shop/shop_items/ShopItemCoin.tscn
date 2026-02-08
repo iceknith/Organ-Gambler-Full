@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceqj10ta6pima"]
+
+[ext_resource type="PackedScene" uid="uid://c8fa3kgbigp78" path="res://src/game_scenes/shop/shop_items/shopItem.tscn" id="1_n6tdv"]
+[ext_resource type="Script" uid="uid://c566qd8aij75i" path="res://src/game_scenes/shop/shop_items/shop_item_coin.gd" id="2_uvnj3"]
+
+[node name="ShopItem" instance=ExtResource("1_n6tdv")]
+script = ExtResource("2_uvnj3")

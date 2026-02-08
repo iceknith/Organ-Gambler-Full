@@ -1,10 +1,15 @@
-extends Node2D 
+class_name coinVisual extends Node2D 
 
-# Signal attendu par coinHandler
+###---Signals---#
 signal landed(result: float)
 
-var coin_data:Coin 
+###---Variables---###
 
+var coin_data:Coin 
+var player_luck:float
+var landing_position:Vector2
+
+###---Functions---###
 
 func _ready() -> void:
 	update_visuals()
@@ -18,16 +23,22 @@ func flip():
 	
 	coin_data._on_tossed()
 	
-	# play the coin's animation
-	# $AnimationPlayer.play("spin") 
-	# await $AnimationPlayer.animation_finished
+	animation()
 	
 	coin_data._on_landed()
 
-	var current_luck = coin_data.luck + Player.get_attribute(Player.Attributes.LUCK)
+	 
+	var current_luck = player_luck / ( player_luck + 1/coin_data.luck - 1)
 	
-	if(current_luck > RandomNumberGenerator.new().randf_range(0.0,100.0)):
+	if(current_luck > RandomNumberGenerator.new().randf_range(0.0,1.0)):
 		outcome =  coin_data._on_tails()
 	else:
 		outcome =  coin_data._on_heads()
+		
 	landed.emit(outcome)
+
+func animation()-> void:
+	# play the coin's animation
+	# $AnimationPlayer.play("spin") 
+	# await $AnimationPlayer.animation_finished
+	pass

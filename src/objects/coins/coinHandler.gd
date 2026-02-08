@@ -1,0 +1,92 @@
+class_name coinHandler extends Node2D
+# coinHandler is responsible for the creation and destruction of each coin
+#after instantiation of a coin, wait for a reponce, when all responce gatherd send signal to player and crear the scene tree
+
+func _ready() -> void:
+	playHands()
+
+###---Signals---#
+signal hands_finished(total_money:float)
+
+###---Variables---###
+# coin instanciation
+const coin_scene: PackedScene = preload("res://src/objects/coins/visual_coin/coinVisual.tscn")
+var spawn_speed: float = 0.5
+
+# Screen limits & offsets
+var window_height = ProjectSettings.get_setting("display/window/size/viewport_height")
+var window_width = ProjectSettings.get_setting("display/window/size/viewport_width")
+
+var offset_spawn_x:Vector2 = Vector2(50, -50)
+var offset_spawn_y:Vector2 = Vector2(50, -50)
+
+# Coins
+var current_coin:Coin
+
+var coins_to_toss:int
+var coins_landed:int
+var total_outcome:float
+
+###---Functions---###
+
+func playHands() -> void:
+	#  FOr now we force the current coin to be BaseCoin
+	# TODO implement current_coin 
+	current_coin = load("res://src/objects/coins/list/BaseCoin.tres") # Player.coins[0]
+	#Reset coinHandler's data
+	total_outcome = 0
+	coins_to_toss =int(Player.get_attribute(Player.Attributes.COINS_TOSSED))
+	coins_landed = 0
+	
+	for coin in coins_to_toss:
+		#debug
+		#print("Coin" + str(current_coin.name)+" instantiated")
+
+		var random = RandomNumberGenerator.new()
+		var pos_x= random.randf_range(offset_spawn_x[0],window_width+offset_spawn_x[1])
+		var pos_y = random.randf_range(offset_spawn_y[0],window_height+offset_spawn_y[1])
+		spawn_coin(current_coin,Vector2(pos_x,pos_y))
+		
+		await get_tree().create_timer(spawn_speed).timeout	
+	
+	#subtracts durability
+	current_coin.durability-=1
+
+
+func spawn_coin(coin_data:Coin, spawn_position:Vector2)->void:
+	#Instantiate the coin
+	var coin = coin_scene.instantiate()
+
+	coin.coin_data = coin_data
+	coin.player_luck = Player.get_attribute(Player.Attributes.LUCK)
+	coin.landing_position = spawn_position
+
+	coin.landed.connect(coin_landed)
+	# add to tree as child of coinHandler
+	add_child(coin)
+	
+
+func coin_landed(outcome:float) -> void:
+	coins_landed +=1
+	total_outcome +=outcome 
+
+	if coins_landed ==coins_to_toss:
+		end_round()
+	
+
+func end_round() -> void:
+	if current_coin.durability == 0:
+		current_coin._on_broke()
+	
+	hands_finished.emit(total_outcome)
+	#debug
+	#print("Total outcome: "+ str(total_outcome))
+	
+	#After X seconds, free all instantiated coins
+	#TODO : streamline the destruction of the old coins
+	await get_tree().create_timer(5).timeout
+	clean_coins()
+
+func clean_coins() -> void:
+	for child in get_children():
+		child.queue_free()

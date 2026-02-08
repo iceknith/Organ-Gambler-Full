@@ -59,6 +59,12 @@ func get_organ_count(organ_name:String) -> int:
 		if organ.name == organ_name: count += 1
 	return count
 
+func get_total_coin_count() -> int:
+	var count:int = 0
+	for coin in coins: 
+		if coins != null: count += 1
+	return count
+
 ###---Setters---###
 func add_organ(organ:Organ) -> void:
 	organs.append(organ)
