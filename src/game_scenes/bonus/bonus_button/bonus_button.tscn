@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://vcdahhthqwip"]
+
+[ext_resource type="Script" uid="uid://bt5gxb11h6wbu" path="res://src/game_scenes/bonus/bonus_button/bonus_button.gd" id="1_qujmp"]
+
+[node name="BonusButton" type="Button"]
+custom_minimum_size = Vector2(200, 300)
+tooltip_text = "Default"
+text = "Default"
+script = ExtResource("1_qujmp")
