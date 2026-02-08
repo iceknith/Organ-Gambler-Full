@@ -1,54 +1,57 @@
-[gd_scene load_steps=12 format=3 uid="uid://dutv72445v5ul"]
+[gd_scene load_steps=13 format=3 uid="uid://dutv72445v5ul"]
 
 [ext_resource type="Script" uid="uid://c7avgttkxqe1l" path="res://src/game_scenes/main/main.gd" id="1_b4anw"]
 [ext_resource type="PackedScene" uid="uid://6r4y1jj4bocd" path="res://src/game_scenes/overlay/overlay.tscn" id="2_3j4ov"]
 [ext_resource type="Script" uid="uid://0a1f5p2jiic5" path="res://src/game_scenes/main/SceneTransitions/sceneTransitions.gd" id="2_doc06"]
-[ext_resource type="PackedScene" uid="uid://dj2twajximn7o" path="res://src/test/testBlue.tscn" id="3_fjtip"]
-[ext_resource type="PackedScene" uid="uid://b0yybq7ngnwhv" path="res://src/test/test.tscn" id="3_rmpdw"]
+[ext_resource type="PackedScene" uid="uid://cafxs6s1gkct" path="res://src/game_scenes/hub/hub.tscn" id="3_fjtip"]
 [ext_resource type="Script" uid="uid://n5ob7nt03h06" path="res://src/game_scenes/main/SceneTransitions/movementSceneTransition.gd" id="4_6wpp0"]
-[ext_resource type="PackedScene" uid="uid://8l472uxctylj" path="res://src/test/testOverlay.tscn" id="5_6wpp0"]
-[ext_resource type="PackedScene" uid="uid://cn1f4vij7q7mm" path="res://src/test/testRed.tscn" id="5_fjtip"]
+[ext_resource type="PackedScene" uid="uid://i17ctrr6glf1" path="res://src/game_scenes/shop/shop.tscn" id="5_6wpp0"]
+[ext_resource type="PackedScene" uid="uid://btu4mrucpb5m7" path="res://src/game_scenes/round/roundScene.tscn" id="6_6wpp0"]
+[ext_resource type="PackedScene" uid="uid://jb4fav4bu744" path="res://src/game_scenes/stats/stats.tscn" id="6_i8yr3"]
 
-[sub_resource type="Resource" id="Resource_i8yr3"]
+[sub_resource type="Resource" id="Resource_010ik"]
 script = ExtResource("4_6wpp0")
-transition_direction = Vector2(1, 0)
 scene = ExtResource("3_fjtip")
-type = 1
-transition_duration = 2.0
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 
-[sub_resource type="Resource" id="Resource_fjtip"]
+[sub_resource type="Resource" id="Resource_qih35"]
+script = ExtResource("4_6wpp0")
+transition_direction = Vector2(1, 0)
+scene = ExtResource("5_6wpp0")
+type = 1
+transition_duration = 0.5
+invert_transition_duration = 0.5
+metadata/_custom_type_script = "uid://n5ob7nt03h06"
+
+[sub_resource type="Resource" id="Resource_r5ffl"]
+script = ExtResource("4_6wpp0")
+transition_direction = Vector2(0, 1)
+scene = ExtResource("6_6wpp0")
+transition_duration = 0.5
+invert_transition_duration = 0.5
+metadata/_custom_type_script = "uid://n5ob7nt03h06"
+
+[sub_resource type="Resource" id="Resource_vflos"]
 script = ExtResource("4_6wpp0")
 transition_direction = Vector2(0, -1)
-scene = ExtResource("5_6wpp0")
+scene = ExtResource("6_i8yr3")
 transition_ease = 1
 transition_type = 9
-transition_duration = 1.0
-invert_transition_type = 5
-invert_transition_duration = 0.7
-metadata/_custom_type_script = "uid://n5ob7nt03h06"
-
-[sub_resource type="Resource" id="Resource_6wpp0"]
-script = ExtResource("4_6wpp0")
-transition_direction = Vector2(1, 0)
-scene = ExtResource("5_fjtip")
-type = 1
-transition_duration = 0.6
-invert_transition_type = 7
-invert_transition_duration = 1.0
+transition_duration = 0.75
+invert_transition_ease = 1
+invert_transition_duration = 0.2
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 
 [node name="Main" type="Node"]
 script = ExtResource("1_b4anw")
 scenes = Dictionary[String, ExtResource("2_doc06")]({
-"testBlue": SubResource("Resource_i8yr3"),
-"testOverlay": SubResource("Resource_fjtip"),
-"testRed": SubResource("Resource_6wpp0")
+"hub": SubResource("Resource_010ik"),
+"round": SubResource("Resource_r5ffl"),
+"shop": SubResource("Resource_qih35"),
+"stats": SubResource("Resource_vflos")
 })
-firstScene = "testBlue"
+firstScene = "hub"
 
 [node name="Overlay" parent="." instance=ExtResource("2_3j4ov")]
-
-[node name="Test" parent="." instance=ExtResource("3_rmpdw")]
 
 [node name="GameScenes" type="Node" parent="."]

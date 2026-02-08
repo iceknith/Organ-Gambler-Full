@@ -92,7 +92,7 @@ script = ExtResource("2_plk11")
 layout_mode = 2
 texture = ExtResource("2_6o8qp")
 
-[node name="Button" type="Button" parent="."]
+[node name="Back" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

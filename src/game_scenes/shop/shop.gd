@@ -18,9 +18,16 @@ var coins_inventory:Array[ShopItemCoin]
 @onready var shop_coin_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/ShopItemCoin.tscn")
 
 func _ready():
+	connect_signals()
+	
 	load_shop()
 	$ItemContainer/RerollButton.pressed.connect(reroll_shop)
 	restock()
+
+func connect_signals() -> void:
+	# Connect button signals
+	$Back.pressed.connect(Main.main.go_back)
+	$Stats.pressed.connect(Main.main.switch_to_scene.bind("stats"))
 
 func load_shop() -> void:
 	var shop_instance:Control
@@ -36,7 +43,6 @@ func load_shop() -> void:
 		$ItemContainer/CoinContainer.add_child(shop_instance)
 		shop_instance.show()
 		coins_inventory.append(shop_instance)
-
 
 func restock():
 	restock_all_organs()
@@ -95,7 +101,7 @@ func calculate_cost_coin(coin:Coin) -> float:
 	var cost:float = base + (2 + base * bought) * max(0, wave - 3)
 	cost = (cost + flat_cost_increase) * cost_multiplier 
 	return cost
-	
+
 func reroll_shop():
 	if reroll_left > 0:
 		reroll_left -= 1

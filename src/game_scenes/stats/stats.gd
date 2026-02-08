@@ -11,14 +11,20 @@ var label2_innit_text:String
 
 # Reprend le fonctionnement du stats screen de la jam
 func _ready():
+	connect_signals()
+	
 	label1_innit_text = label_1.text
 	label2_innit_text = label_2.text
-	
+	refresh()
+
+func connect_signals():
+	# Stats Changing
 	Player.money_change.connect(_on_money_changed)
 	Player.organ_added.connect(_refresh_organ)
 	Player.organ_removed.connect(_refresh_organ)
-
-	refresh()
+	
+	# Button signals
+	$Back.pressed.connect(Main.main.go_back)
 
 func refresh():
 	label_1.text = label1_innit_text
