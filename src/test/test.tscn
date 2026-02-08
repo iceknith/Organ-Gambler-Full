@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0yybq7ngnwhv"]
+[gd_scene load_steps=2 format=3 uid="uid://b0yybq7ngnwhv"]
 
 [ext_resource type="Script" uid="uid://dts0hc60mw6kc" path="res://src/test/test.gd" id="1_6frii"]
-[ext_resource type="Texture2D" uid="uid://bixpcax2l3df6" path="res://icon.svg" id="2_46a02"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_6frii")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 64.66265
-texture = ExtResource("2_46a02")
