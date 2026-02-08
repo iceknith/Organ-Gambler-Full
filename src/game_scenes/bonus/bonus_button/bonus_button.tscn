@@ -4,6 +4,5 @@
 
 [node name="BonusButton" type="Button"]
 custom_minimum_size = Vector2(200, 300)
-tooltip_text = "Default"
 text = "Default"
 script = ExtResource("1_qujmp")

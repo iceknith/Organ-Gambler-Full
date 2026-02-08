@@ -10,13 +10,18 @@ class_name BonusChoice extends Button
 
 signal bonus_change
 
+signal bonus_chosen
 
 
 func _ready():
 	bonus_change.connect(display)
 
 
+func display(new_bonus) -> void:
+	if new_bonus != null:
+		text = "{0}\n\n{1}".format([new_bonus.name, new_bonus.description])
 
-func display() -> void:
+func _pressed() -> void:
 	if bonus != null:
-		text = "{0}\n\n{1}".format([bonus.name, bonus.description])
+		bonus_chosen.emit(bonus)
+		text = "choisi"

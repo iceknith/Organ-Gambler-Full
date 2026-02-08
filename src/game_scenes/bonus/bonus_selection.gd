@@ -28,6 +28,7 @@ func load_random_bonus(index) -> void:
 	random_bonus = BonusLoader.get_random_object()
 	slot = bonus_choices[index]
 	slot.set("bonus",random_bonus)
+	print(random_bonus,slot.bonus)
 	
 func reroll():
 	for index in range(bonus_choice_number):
