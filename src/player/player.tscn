@@ -1,12 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwgktumbjpp3"]
+[gd_scene load_steps=2 format=3 uid="uid://bwgktumbjpp3"]
 
 [ext_resource type="Script" uid="uid://bes63j1dq60g1" path="res://src/player/player.gd" id="1_4anbu"]
-[ext_resource type="PackedScene" uid="uid://dyhe77t3mccvq" path="res://src/objects/coins/coinHandler.tscn" id="2_rxibo"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_4anbu")
 money = 100.0
 defaultOrgans = Array[String](["Hand", "Hand"])
 defaultCoins = Array[String](["SimpleCoin"])
-
-[node name="CoinHandler" parent="." instance=ExtResource("2_rxibo")]

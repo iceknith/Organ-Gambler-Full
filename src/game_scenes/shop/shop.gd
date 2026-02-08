@@ -15,7 +15,7 @@ var organs_inventory:Array[ShopItemOrgan]
 var coins_inventory:Array[ShopItemCoin]
 
 @onready var shop_organ_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/shopItemOrgan.tscn")
-@onready var shop_coin_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/shopItemCoin.tscn")
+@onready var shop_coin_scene:PackedScene = preload("res://src/game_scenes/shop/shop_items/ShopItemCoin.tscn")
 
 func _ready():
 	load_shop()
