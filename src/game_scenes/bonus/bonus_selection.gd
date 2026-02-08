@@ -1,12 +1,13 @@
 extends Control
 
 @export var bonus_choice_number:int
-var bonus_choices:Array[Bonus]
+var bonus_choices:Array[BonusChoice]
 
 @onready var bonus_scene:PackedScene = preload("res://src/game_scenes/bonus/bonus_button/bonus_button.tscn")
 
 func _ready() -> void:
 	load_bonus_slot()
+	reroll()
 	
 	
 func load_bonus_slot() -> void:
@@ -21,8 +22,12 @@ func load_bonus_slot() -> void:
 
 func load_random_bonus(index) -> void:
 	
-	var random_bonus:Bonus = BonusLoader.get_random_object()
-	bonus_choices[index].set("bonus",random_bonus)
+	var random_bonus:Bonus
+	var slot:BonusChoice
+	
+	random_bonus = BonusLoader.get_random_object()
+	slot = bonus_choices[index]
+	slot.set("bonus",random_bonus)
 	
 func reroll():
 	for index in range(bonus_choice_number):

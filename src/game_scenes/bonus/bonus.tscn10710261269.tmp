@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://jmat1bbywlln"]
+
+[ext_resource type="Script" uid="uid://bd85726oalado" path="res://src/game_scenes/bonus/bonus_selection.gd" id="1_h2q4y"]
+
+[node name="Bonus" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_h2q4y")
+bonus_choice_number = 3
+
+[node name="BonusContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 149.0
+offset_right = 107.0
+offset_bottom = 189.0
