@@ -73,15 +73,15 @@ Luck: $Luck
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer" unique_id=806536200]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1797917767]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=806536200]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.12591085, 0.12591085, 0.12591082, 1)
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/ScrollContainer" unique_id=1797917767]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="OrgansContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer/MarginContainer" unique_id=639495112]
 layout_mode = 2
@@ -105,6 +105,7 @@ offset_top = -23.0
 offset_right = 23.5
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 20
 text = "HAND"
 
 [node name="Back" type="Button" parent="." unique_id=1706379004]

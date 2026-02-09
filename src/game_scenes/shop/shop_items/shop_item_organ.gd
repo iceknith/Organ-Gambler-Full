@@ -29,6 +29,7 @@ func load_organ(new_organ:Organ) -> void:
 	$Button.tooltip_text = "{0}\n{1}\n{2}".format([tooltip1, tooltip2, tooltip3])
 
 func bought():
+	$Button.get_child(0).text= ""
 	super.bought()
 	#ajout de l'organe à l'inventaire
 	Player.add_organ(organ)

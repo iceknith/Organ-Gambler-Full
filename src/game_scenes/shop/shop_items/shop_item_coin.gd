@@ -39,6 +39,7 @@ func try_to_buy() -> void:
 		printerr("Inventaire de coin plein")
 
 func bought():
+	$Button.get_child(0).text= ""
 	super.bought()
 	#ajout du coin à l'inventaire
 	Player.add_coin(coin)
