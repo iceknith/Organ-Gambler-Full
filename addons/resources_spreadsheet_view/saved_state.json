@@ -28,6 +28,17 @@
         "visibility": 1.0
       }
     },
+    "res://src/objects/bonuses/list/": {
+      "metadata/_custom_type_script": {
+        "visibility": 0.0
+      },
+      "resource_local_to_scene": {
+        "visibility": 0.0
+      },
+      "resource_name": {
+        "visibility": 0.0
+      }
+    },
     "res://src/objects/coins/list/": {
       "metadata/_custom_type_script": {
         "visibility": 0.0
@@ -67,7 +78,8 @@
     "res://addons/resources_spreadsheet_view/example/Items/items/",
     "res://src/objects/organs/organs-list/",
     "res://src/objects/organs/list/",
-    "res://src/objects/coins/list/"
+    "res://src/objects/coins/list/",
+    "res://src/objects/bonuses/list/"
   ],
   "table_functions": {
     "filter": [
