@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://btu4mrucpb5m7"]
+[gd_scene format=3 uid="uid://btu4mrucpb5m7"]
 
 [ext_resource type="PackedScene" uid="uid://dbwgrx2tkkdmo" path="res://src/objects/coins/coinHandler.tscn" id="1_hpjgq"]
 
-[node name="RoundScene" type="Node2D"]
+[node name="RoundScene" type="Node2D" unique_id=1946460628]
 
-[node name="CoinHandler" parent="." instance=ExtResource("1_hpjgq")]
+[node name="CoinHandler" parent="." unique_id=603523771 instance=ExtResource("1_hpjgq")]
