@@ -124,15 +124,18 @@ func remove_attribute_modifier(modifier:AttributeModifier) -> void:
 	modifierHandler.remove(modifier)
 
 func add_coin(coin:Coin) -> void:
-	if coins.size() >= maxCoinCount: printerr("Coin %s could not be added because player has already max amount of coins" % [str(coin)]); return
-	coins.append(coin)
-	# Notify change
-	coin._on_added()
-	coin_added.emit(coin)
+	for index in range(maxCoinCount):
+		if coins[index] == null:
+			coins[index] = coin
+			return
+	printerr("Coin %s could not be added because player has already max amount of coins" % [str(coin)]); return
 
-func remove_coin(coin:Coin) -> void:
-	if coins.has(coin):
-		coins.erase(coin)
+
+func remove_coin(index) -> void:
+	var coin:Coin
+	if coins[index] != null:
+		coin = coins[index]
+		coins[index] = null
 		# Notify change
 		coin._on_removed()
 		coin_removed.emit(coin)

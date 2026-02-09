@@ -22,4 +22,5 @@ bonus = SubResource("Resource_4l82v")
 malus = SubResource("Resource_xu3yr")
 name = "simpleBonus2"
 description = "Un bonus simple haha"
+weight = 1.0
 metadata/_custom_type_script = "uid://d263b6a8btpel"

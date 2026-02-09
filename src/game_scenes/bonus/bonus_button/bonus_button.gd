@@ -23,5 +23,6 @@ func display(new_bonus) -> void:
 
 func _pressed() -> void:
 	if bonus != null:
-		bonus_chosen.emit(bonus)
+		bonus_chosen.emit()
+		bonus._on_bonus_picked()
 		text = "choisi"

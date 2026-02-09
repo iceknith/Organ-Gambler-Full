@@ -14,19 +14,19 @@ script = ExtResource("4_6wpp0")
 scene = ExtResource("3_fjtip")
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 
+[sub_resource type="Resource" id="Resource_r5ffl"]
+script = ExtResource("4_6wpp0")
+transition_direction = Vector2(0, 1)
+scene = ExtResource("6_6wpp0")
+transition_duration = 0.5
+invert_transition_duration = 0.5
+metadata/_custom_type_script = "uid://n5ob7nt03h06"
+
 [sub_resource type="Resource" id="Resource_qih35"]
 script = ExtResource("4_6wpp0")
 transition_direction = Vector2(1, 0)
 scene = ExtResource("5_6wpp0")
 type = 1
-transition_duration = 0.5
-invert_transition_duration = 0.5
-metadata/_custom_type_script = "uid://n5ob7nt03h06"
-
-[sub_resource type="Resource" id="Resource_r5ffl"]
-script = ExtResource("4_6wpp0")
-transition_direction = Vector2(0, 1)
-scene = ExtResource("6_6wpp0")
 transition_duration = 0.5
 invert_transition_duration = 0.5
 metadata/_custom_type_script = "uid://n5ob7nt03h06"

@@ -28,6 +28,8 @@ func load_coin(new_coin:Coin) -> void:
 	$Button.tooltip_text = "{0}\n{1}\n{2}".format([tooltip1, tooltip2, tooltip3])
 
 
+
+#bug coin empty
 func try_to_buy() -> void:
 	#super.try_to_buy seulement si l'inventaire de coin n'est pas plein
 	if Player.get_total_coin_count() < Player.maxCoinCount:
