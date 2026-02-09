@@ -20,7 +20,6 @@ func _ready():
 	$Button.pressed.connect(try_to_buy)
 	cost_change.connect(load_cost)
 
-
 func load_cost(new_cost:float) -> void:
 	tooltip3 = str(new_cost) + "$"
 	$Button.tooltip_text = "{0}\n{1}\n{2}".format([tooltip1, tooltip2, tooltip3])

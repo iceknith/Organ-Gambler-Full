@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SimpleBonus" load_steps=8 format=3 uid="uid://4fmory4aivq2"]
+[gd_resource type="Resource" script_class="SimpleBonus" format=3 uid="uid://4fmory4aivq2"]
 
 [ext_resource type="Script" uid="uid://c5d0lm580atxu" path="res://src/utils/bonus_modifiers/bonusModifierAttribute.gd" id="1_02bdq"]
 [ext_resource type="Script" uid="uid://d263b6a8btpel" path="res://src/objects/bonuses/sub-classes/simpleBonus.gd" id="1_dlh4n"]

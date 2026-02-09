@@ -36,7 +36,7 @@ var attributeModifierHandlers:Dictionary[Attributes, AttributeModifierHandler] =
 ]
 var coins:Array[Coin]
 
-###---Signals---#
+###---Signals---###
 signal money_change(new_money_count:float)
 signal organ_added(organ:Organ)
 signal organ_removed(organ:Organ)
