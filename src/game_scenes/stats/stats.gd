@@ -40,5 +40,5 @@ func refresh():
 func _on_money_changed()->void:
 	refresh()
 
-func _refresh_organ()->void:
+func _refresh_organ(_organ_changed:Organ=null)->void:
 	organs_container.load_organs()

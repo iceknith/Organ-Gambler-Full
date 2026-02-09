@@ -2,7 +2,8 @@ extends Container
 
 
 func _ready():
-	call_deferred("load_organs")
+	await get_tree().process_frame
+	load_organs()
 
 func load_organs() -> void:
 	var image:TextureRect

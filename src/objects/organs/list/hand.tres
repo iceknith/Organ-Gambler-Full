@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Organ" load_steps=4 format=3 uid="uid://didpaxbf03mss"]
+[gd_resource type="Resource" script_class="Organ" format=3 uid="uid://didpaxbf03mss"]
 
 [ext_resource type="Script" uid="uid://r4s7qms4ni1i" path="res://src/utils/attribute_modifiers/attributeModifier.gd" id="1_qahh2"]
 [ext_resource type="Script" uid="uid://bj73u7n2cj046" path="res://src/objects/organs/organ.gd" id="2_ok16s"]
