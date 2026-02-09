@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dutv72445v5ul"]
+[gd_scene load_steps=13 format=3 uid="uid://dutv72445v5ul"]
 
 [ext_resource type="Script" uid="uid://c7avgttkxqe1l" path="res://src/game_scenes/main/main.gd" id="1_b4anw"]
 [ext_resource type="PackedScene" uid="uid://6r4y1jj4bocd" path="res://src/game_scenes/overlay/overlay.tscn" id="2_3j4ov"]
@@ -42,7 +42,7 @@ invert_transition_ease = 1
 invert_transition_duration = 0.2
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 
-[node name="Main" type="Node" unique_id=1687265917]
+[node name="Main" type="Node"]
 script = ExtResource("1_b4anw")
 scenes = Dictionary[String, ExtResource("2_doc06")]({
 "hub": SubResource("Resource_010ik"),
@@ -52,6 +52,6 @@ scenes = Dictionary[String, ExtResource("2_doc06")]({
 })
 firstScene = "hub"
 
-[node name="Overlay" parent="." unique_id=390156450 instance=ExtResource("2_3j4ov")]
+[node name="Overlay" parent="." instance=ExtResource("2_3j4ov")]
 
-[node name="GameScenes" type="Node" parent="." unique_id=2059209114]
+[node name="GameScenes" type="Node" parent="."]

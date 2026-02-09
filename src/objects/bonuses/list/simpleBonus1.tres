@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SimpleBonus" format=3 uid="uid://bukmcrahiy8ci"]
+[gd_resource type="Resource" script_class="SimpleBonus" load_steps=6 format=3 uid="uid://bukmcrahiy8ci"]
 
 [ext_resource type="Script" uid="uid://bhwwimegom8lc" path="res://src/utils/bonus_modifiers/bonusModifierMoney.gd" id="1_p8xpx"]
 [ext_resource type="Script" uid="uid://b8dg8u0sjp0ul" path="res://src/utils/bonus_modifiers/bonusModifierOrgan.gd" id="3_8ndnc"]

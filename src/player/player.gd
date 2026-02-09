@@ -62,7 +62,7 @@ func get_organ_count(organ_name:String) -> int:
 func get_total_coin_count() -> int:
 	var count:int = 0
 	for coin in coins: 
-		if coins != null: count += 1
+		if coin != null: count += 1
 	return count
 
 ###---Setters---###
@@ -163,9 +163,12 @@ func load_default_organs() -> void:
 		add_organs(organ_name)
 
 func load_default_coins() -> void:
+	for index in range(maxCoinCount):
+		coins.append(null)
 	for coin_name:String in defaultCoins:
 		var coin:Coin = CoinLoader.get_object(coin_name)
 		if coin: add_coin(coin)
+
 
 ###---Editor Stuff---###
 func _validate_property(property: Dictionary) -> void:
