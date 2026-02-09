@@ -21,6 +21,7 @@ func load_coin(new_coin:Coin) -> void:
 		$Button.text = new_coin.name
 		tooltip1 = new_coin.name
 		tooltip2 = new_coin.description
+		$Button.get_child(0).text= str(new_coin.base_cost)
 	else:
 		tooltip1 = ""
 		tooltip2 = ""

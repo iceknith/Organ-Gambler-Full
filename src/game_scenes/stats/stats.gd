@@ -21,7 +21,7 @@ func connect_signals():
 	# Stats Changing
 	Player.money_change.connect(_on_money_changed)
 	Player.organ_added.connect(_refresh_organ)
-	Player.organ_removed.connect(_refresh_organ)
+	#Player.organ_removed.connect(_refresh_organ)
 	
 	# Button signals
 	$Back.pressed.connect(Main.main.go_back)
@@ -37,8 +37,9 @@ func refresh():
 	label_2.text = label_2.text.replace("$VALUE_MULT", str(Player.get_attribute(Player.Attributes.VALUE_MULT)))
 	label_2.text = label_2.text.replace("$Luck", str(Player.get_attribute(Player.Attributes.LUCK))) 
 
-func _on_money_changed()->void:
+func _on_money_changed(new_money_count:float=0)->void:
 	refresh()
+
 
 func _refresh_organ(_organ_changed:Organ=null)->void:
 	organs_container.load_organs()

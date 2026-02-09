@@ -89,8 +89,23 @@ columns = 7
 script = ExtResource("2_plk11")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/ScrollContainer/MarginContainer/OrgansContainer" unique_id=1128053198]
+modulate = Color(0.9955804, 0.99558026, 0.99558026, 1)
 layout_mode = 2
 texture = ExtResource("2_6o8qp")
+
+[node name="Label" type="Label" parent="VBoxContainer/ScrollContainer/MarginContainer/OrgansContainer/TextureRect" unique_id=1296885109]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.5
+offset_top = -23.0
+offset_right = 23.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "HAND"
 
 [node name="Back" type="Button" parent="." unique_id=1706379004]
 layout_mode = 1

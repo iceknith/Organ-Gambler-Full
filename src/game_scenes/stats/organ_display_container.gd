@@ -13,4 +13,5 @@ func load_organs() -> void:
 		#print(str(organ))
 		image = oldImage.duplicate()
 		#image.texture = load(OrganVars.organs[organ]["image"])
+		image.get_child(0).text = organ.name
 		add_child(image)
