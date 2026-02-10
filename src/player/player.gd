@@ -129,6 +129,7 @@ func add_coin(coin:Coin) -> void:
 	for index in range(maxCoinCount):
 		if coins[index] == null:
 			coins[index] = coin
+			coin_added.emit()
 			return
 	printerr("Coin %s could not be added because player has already max amount of coins" % [str(coin)]); return
 
@@ -170,6 +171,7 @@ func load_default_coins() -> void:
 	for coin_name:String in defaultCoins:
 		var coin:Coin = CoinLoader.get_object(coin_name)
 		if coin: add_coin(coin)
+	print(coins)
 
 
 ###---Editor Stuff---###

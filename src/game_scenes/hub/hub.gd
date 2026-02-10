@@ -16,6 +16,7 @@ func connect_signals():
 
 func load_coin_slot():
 	var slot:CoinSlot
-	for n in Player.maxCoinCount:
+	for index in Player.maxCoinCount:
 		slot = coin_slot_scene.instantiate()
+		slot.index = index
 		$CoinsContainer.add_child(slot)

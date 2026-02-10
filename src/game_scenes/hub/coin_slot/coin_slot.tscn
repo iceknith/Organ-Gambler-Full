@@ -4,5 +4,7 @@
 
 [node name="CoinSlot" type="Button" unique_id=964446660]
 custom_minimum_size = Vector2(100, 100)
+tooltip_text = "Default"
 toggle_mode = true
+text = "Default"
 script = ExtResource("1_wa75r")
