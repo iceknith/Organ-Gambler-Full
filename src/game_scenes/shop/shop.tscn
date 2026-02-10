@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://i17ctrr6glf1"]
+[gd_scene format=3 uid="uid://i17ctrr6glf1"]
 
 [ext_resource type="Script" uid="uid://b2g6lqfxopsq8" path="res://src/game_scenes/shop/shop.gd" id="1_0npe2"]
 
-[node name="Shop" type="Control"]
+[node name="Shop" type="Control" unique_id=1953033158]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,13 @@ script = ExtResource("1_0npe2")
 reroll_left = 5
 coins_inventory_size = 3
 
-[node name="Back" type="Button" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1865654909]
+layout_mode = 1
+offset_right = 1404.0
+offset_bottom = 836.0
+color = Color(0.4392157, 0.4392157, 0.4392157, 1)
+
+[node name="Back" type="Button" parent="." unique_id=1901711313]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 0
 offset_left = 30.0
@@ -24,7 +30,7 @@ offset_right = 130.0
 offset_bottom = 79.0
 text = "Back"
 
-[node name="Stats" type="Button" parent="."]
+[node name="Stats" type="Button" parent="." unique_id=968026729]
 custom_minimum_size = Vector2(100, 60)
 layout_mode = 0
 offset_left = 1014.0
@@ -33,7 +39,7 @@ offset_right = 1114.0
 offset_bottom = 87.0
 text = "Stats"
 
-[node name="ItemContainer" type="VBoxContainer" parent="."]
+[node name="ItemContainer" type="VBoxContainer" parent="." unique_id=88981596]
 custom_minimum_size = Vector2(1100, 0)
 layout_mode = 0
 offset_left = 25.0
@@ -42,13 +48,13 @@ offset_right = 1125.0
 offset_bottom = 208.0
 alignment = 1
 
-[node name="OrganContainer" type="HBoxContainer" parent="ItemContainer"]
+[node name="OrganContainer" type="HBoxContainer" parent="ItemContainer" unique_id=2094333917]
 layout_mode = 2
 
-[node name="CoinContainer" type="HBoxContainer" parent="ItemContainer"]
+[node name="CoinContainer" type="HBoxContainer" parent="ItemContainer" unique_id=297644098]
 layout_mode = 2
 
-[node name="RerollButton" type="Button" parent="ItemContainer"]
+[node name="RerollButton" type="Button" parent="ItemContainer" unique_id=870241883]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 8

@@ -1,13 +1,9 @@
 [gd_scene format=3 uid="uid://dbwgrx2tkkdmo"]
 
 [sub_resource type="GDScript" id="GDScript_lr6ul"]
-script/source = "class_name coinHandler extends Node2D
+script/source = "extends Node2D
 # coinHandler is responsible for the creation and destruction of each coin
 #after instantiation of a coin, wait for a reponce, when all responce gatherd send signal to player and crear the scene tree
-
-func _ready() -> void:
-	print(\"debug?\")
-	playHands()
 
 ###---Signals---#
 signal hands_finished(total_money:float)
@@ -34,7 +30,7 @@ var total_outcome:float
 ###---Functions---###
 
 func playHands() -> void:
-	#  FOr now we force the current coin to be BaseCoin
+	print(\"Playing hands...\")
 	# TODO implement current_coin 
 	current_coin = load(\"res://src/objects/coins/list/BaseCoin.tres\") # Player.coins[0]
 	#Reset coinHandler's data
@@ -71,6 +67,7 @@ func spawn_coin(coin_data:Coin, spawn_position:Vector2)->void:
 	
 
 func coin_landed(outcome:float) -> void:
+	print(\"Coin\" + str(current_coin.name)+\" landed, value =\", str(outcome) )
 	coins_landed +=1
 	total_outcome +=outcome 
 
