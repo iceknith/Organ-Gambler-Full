@@ -31,8 +31,3 @@ func try_to_buy() -> void:
 
 func bought():
 	cost = 0
-	lock()
-
-#bloque le slot du shop
-func lock():
-	pass

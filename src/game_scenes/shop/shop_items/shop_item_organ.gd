@@ -22,6 +22,7 @@ func load_organ(new_organ:Organ) -> void:
 		tooltip1 = new_organ.name
 		tooltip2 = new_organ.description
 		$Button.get_child(0).text=  str(new_organ.base_cost)
+		$Button.disabled = false
 	else:
 		tooltip1 = ""
 		tooltip2 = ""
@@ -34,4 +35,6 @@ func bought():
 	#ajout de l'organe à l'inventaire
 	Player.add_organ(organ)
 	set("organ",null)
+	#bloque le slot du shop
+	$Button.disabled = true
 	pass

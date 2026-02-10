@@ -22,6 +22,7 @@ func load_coin(new_coin:Coin) -> void:
 		tooltip1 = new_coin.name
 		tooltip2 = new_coin.description
 		$Button.get_child(0).text= str(new_coin.base_cost)
+		$Button.disabled = false
 	else:
 		tooltip1 = ""
 		tooltip2 = ""
@@ -44,4 +45,6 @@ func bought():
 	#ajout du coin à l'inventaire
 	Player.add_coin(coin)
 	set("coin",null)
+	#bloque le slot du shop
+	$Button.disabled = true
 	pass
