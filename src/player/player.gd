@@ -31,8 +31,10 @@ var organs:Array[Organ]
 var attributeModifierHandlers:Dictionary[Attributes, AttributeModifierHandler] = {}
 
 # Coins
+@export var selectedCoinIndex:int = 0
 @export var maxCoinCount:int = 6
 @export var defaultCoins:Array[String] = [
+	"BaseCoin"
 ]
 var coins:Array[Coin]
 

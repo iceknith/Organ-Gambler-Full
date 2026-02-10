@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bh6wr4nm4eyrr"]
+
+[ext_resource type="Script" uid="uid://c27dwvv7j2oll" path="res://src/game_scenes/hub/coin_slot/coin_slot.gd" id="1_wa75r"]
+
+[node name="CoinSlot" type="Button" unique_id=964446660]
+custom_minimum_size = Vector2(100, 100)
+toggle_mode = true
+script = ExtResource("1_wa75r")
