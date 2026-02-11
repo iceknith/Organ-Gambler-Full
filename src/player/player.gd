@@ -67,6 +67,12 @@ func get_total_coin_count() -> int:
 		if coin != null: count += 1
 	return count
 
+func get_selected_coin() -> Coin:
+	var coin = coins[selectedCoinIndex]
+	if not coin: printerr("Plus de coins disponibles")
+	return coin
+
+
 ###---Setters---###
 func add_organ(organ:Organ) -> void:
 	organs.append(organ)

@@ -2,6 +2,7 @@ class_name CoinSlot extends Button
 
 var index:int
 
+signal select
 signal coin_change
 
 @export var coin:Coin = null:
@@ -12,9 +13,7 @@ signal coin_change
 		return coin
 
 func _ready() -> void:
-	Player.coin_added.connect(refresh)
-	pass
-
+	pass	
 
 func refresh() -> void:
 	coin = Player.coins[index]
@@ -26,3 +25,8 @@ func refresh() -> void:
 		text = "Empty"
 		tooltip_text = ""
 		disabled = true
+		
+func _pressed() -> void:
+	if coin:
+		Player.selectedCoinIndex = index
+		select.emit(self)

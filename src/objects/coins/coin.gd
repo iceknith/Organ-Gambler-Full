@@ -4,6 +4,7 @@
 @export var base_cost:float
 @export var luck:float = 50
 
+
 func _on_added():
 	pass
 
