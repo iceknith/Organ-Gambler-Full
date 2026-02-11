@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwgktumbjpp3"]
+[gd_scene format=3 uid="uid://bwgktumbjpp3"]
 
 [ext_resource type="Script" uid="uid://bes63j1dq60g1" path="res://src/player/player.gd" id="1_4anbu"]
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node" unique_id=312107765]
 script = ExtResource("1_4anbu")
 money = 100.0
 defaultOrgans = Array[String](["Hand", "Hand"])
-defaultCoins = Array[String](["SimpleCoin"])
+defaultCoins = Array[String](["SimpleCoin", "LuckyCoin", "SilverCoin", "SimpleCoin"])

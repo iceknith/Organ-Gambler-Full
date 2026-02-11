@@ -4,7 +4,6 @@ extends GridContainer
 
 
 func _ready() -> void:
-	Coin.coin_change.connect(always_selected)
 	load_coin_slot()
 
 func load_coin_slot():

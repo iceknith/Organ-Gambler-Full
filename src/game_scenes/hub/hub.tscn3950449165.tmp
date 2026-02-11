@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cafxs6s1gkct"]
+
+[ext_resource type="Script" uid="uid://bjarfd8tcxj6i" path="res://src/game_scenes/hub/hub.gd" id="1_g5bm1"]
+[ext_resource type="Script" uid="uid://rhj252uyfbw7" path="res://src/game_scenes/hub/coin_inventory/coins_container.gd" id="2_rdi64"]
+
+[node name="Hub" type="Control" unique_id=220278144]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g5bm1")
+
+[node name="PlayRound" type="Button" parent="." unique_id=704113636]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 0
+offset_left = 434.0
+offset_top = 300.0
+offset_right = 534.0
+offset_bottom = 360.0
+text = "Play Round"
+
+[node name="SkipRounds" type="Button" parent="." unique_id=1515047951]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 0
+offset_left = 581.0
+offset_top = 300.0
+offset_right = 684.0
+offset_bottom = 360.0
+text = "Skip Rounds"
+
+[node name="Stats" type="Button" parent="." unique_id=206317480]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 130.0
+offset_bottom = 79.0
+text = "Stats"
+
+[node name="Shop" type="Button" parent="." unique_id=770038673]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 0
+offset_left = 1014.0
+offset_top = 27.0
+offset_right = 1114.0
+offset_bottom = 87.0
+text = "Shop"
+
+[node name="CoinsContainer" type="GridContainer" parent="." unique_id=1916341455]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 412.0
+offset_right = 302.0
+offset_bottom = 452.0
+columns = 5
+script = ExtResource("2_rdi64")

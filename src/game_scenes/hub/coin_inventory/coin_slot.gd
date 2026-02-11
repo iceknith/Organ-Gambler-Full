@@ -13,7 +13,9 @@ signal coin_change
 		return coin
 
 func _ready() -> void:
-	pass	
+	Player.coin_added.connect(refresh)
+	Player.coin_removed.connect(refresh)
+	pass
 
 func refresh() -> void:
 	coin = Player.coins[index]
