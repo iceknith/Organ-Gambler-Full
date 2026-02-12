@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://bf6iw5jaxcy8j"]
+[gd_resource type="Resource" script_class="SimpleCoin" format=3 uid="uid://bf6iw5jaxcy8j"]
 
 [ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_m27os"]
 
@@ -8,6 +8,8 @@ valueHeads = 1.0
 durability = -1.0
 base_cost = 1.0
 luck = 0.5
+goodSideColor = Color(1, 0.6675465, 0, 1)
+badSideColor = Color(1, 0, 0, 1)
 name = "SimpleCoin"
 description = "The simplest coin"
 metadata/_custom_type_script = "uid://7083qkrbff1n"

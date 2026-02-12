@@ -1,7 +1,32 @@
 [gd_scene format=3 uid="uid://btu4mrucpb5m7"]
 
 [ext_resource type="PackedScene" uid="uid://dbwgrx2tkkdmo" path="res://src/objects/coins/coinHandler.tscn" id="1_hpjgq"]
+[ext_resource type="Script" uid="uid://g03w16gftavg" path="res://src/game_scenes/round/round.gd" id="1_tychs"]
 
 [node name="RoundScene" type="Node2D" unique_id=1946460628]
+script = ExtResource("1_tychs")
 
 [node name="CoinHandler" parent="." unique_id=603523771 instance=ExtResource("1_hpjgq")]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=35975147]
+visible = false
+offset_right = 1350.0
+offset_bottom = 787.0
+color = Color(0.530252, 0.47924066, 0.47924066, 1)
+
+[node name="Back" type="Button" parent="." unique_id=1607021747]
+custom_minimum_size = Vector2(100, 60)
+offset_left = 30.0
+offset_top = 19.0
+offset_right = 130.0
+offset_bottom = 79.0
+text = "Back_debug"
+
+[node name="Play" type="Button" parent="." unique_id=115037812]
+custom_minimum_size = Vector2(100, 60)
+offset_left = 541.0
+offset_top = 396.0
+offset_right = 641.0
+offset_bottom = 456.0
+text = "play_debug
+"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ddo6lygq734ui"]
+
+[ext_resource type="Script" uid="uid://bjpvtgbmthnkt" path="res://src/objects/coins/visual_hand/handVisual.gd" id="1_e1pet"]
+[ext_resource type="Texture2D" uid="uid://bixpcax2l3df6" path="res://icon.svg" id="2_v4xox"]
+
+[node name="Hand" type="Node2D" unique_id=386450201]
+script = ExtResource("1_e1pet")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=446405192]
+texture = ExtResource("2_v4xox")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1080322192]
+position = Vector2(0, -50)

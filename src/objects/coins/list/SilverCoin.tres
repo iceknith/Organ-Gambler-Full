@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://cm2p0f5uqino0"]
+[gd_resource type="Resource" script_class="SimpleCoin" format=3 uid="uid://cm2p0f5uqino0"]
 
 [ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_wordi"]
 
@@ -9,6 +9,8 @@ valueTails = 1.0
 durability = 2.0
 base_cost = 5.0
 luck = 0.7
+goodSideColor = Color(0.75648403, 0.75648403, 0.75648403, 1)
+badSideColor = Color(0.19879562, 0.19879562, 0.19879562, 1)
 name = "SilverCoin"
 description = "A valuable coin"
 weight = 1.0

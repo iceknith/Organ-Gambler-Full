@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkt7v1wun0521"]
+[gd_scene format=3 uid="uid://bkt7v1wun0521"]
 
 [ext_resource type="Script" uid="uid://e4qoo8fxbhv" path="res://src/objects/coins/visual_coin/coinVisual.gd" id="1_0j2ub"]
 [ext_resource type="Texture2D" uid="uid://bixpcax2l3df6" path="res://icon.svg" id="2_agkkb"]
 
-[node name="CoinVisual" type="Node2D"]
+[node name="CoinVisual" type="Node2D" unique_id=1707590439]
 script = ExtResource("1_0j2ub")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1674333965]
 texture = ExtResource("2_agkkb")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SimpleCoin" load_steps=2 format=3 uid="uid://bxv7flpgg8aj7"]
+[gd_resource type="Resource" script_class="SimpleCoin" format=3 uid="uid://bxv7flpgg8aj7"]
 
 [ext_resource type="Script" uid="uid://7083qkrbff1n" path="res://src/objects/coins/sub-classes/simpleCoin.gd" id="1_bkvhw"]
 
@@ -8,6 +8,8 @@ valueHeads = 1.0
 durability = 4.0
 base_cost = 10.0
 luck = 0.5
+goodSideColor = Color(0.9300014, 1, 0, 1)
+badSideColor = Color(0.34610957, 0.27714315, 0.032385945, 1)
 name = "LuckyCoin"
 description = "good luck"
 weight = 0.5

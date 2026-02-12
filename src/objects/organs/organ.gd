@@ -7,6 +7,9 @@ signal remove
 
 @export var modifiers:Array[AttributeModifier]
 
+@export var in_game_sprite:Texture2D
+
+
 func _to_string() -> String:
 	return name
 
