@@ -8,3 +8,12 @@ tooltip_text = "Default"
 toggle_mode = true
 text = "Default"
 script = ExtResource("1_wa75r")
+
+[node name="Delete" type="Button" parent="." unique_id=1153409510]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+offset_left = 80.0
+offset_top = -10.0
+offset_right = 110.0
+offset_bottom = 21.0
+text = "X"

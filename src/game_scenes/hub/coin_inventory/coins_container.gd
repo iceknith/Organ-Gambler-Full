@@ -5,7 +5,7 @@ extends GridContainer
 
 func _ready() -> void:
 	Player.coin_added.connect(auto_select)
-	
+
 	load_coin_slot()
 
 func load_coin_slot():
