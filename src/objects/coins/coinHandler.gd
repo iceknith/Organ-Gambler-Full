@@ -1,14 +1,12 @@
 class_name coinHandler extends Node2D
-# coinHandler is responsible for the creation and destruction of each coin
-#after instantiation of a coin, wait for a reponce, when all responce gatherd send signal to player and crear the scene tree
 
 ###---Signals---#
-signal hands_finished(total_money:float)
+signal hands_finished()
 
 ###---Variables---###
 # coin instanciation
 const coin_scene: PackedScene = preload("res://src/objects/coins/visual_coin/coinVisual.tscn")
-
+# instanciation speed
 var spawn_delay:float = 0.5
 var speed_scale:float = 0.2
 var spawn_delay_speed: float 
@@ -17,49 +15,46 @@ var nb_coins_to_toss:int
 var nb_coins_landed:int
 var total_outcome:float
 
+var current_coin:Coin
+
 # hand instanciation
 const hand_scene:PackedScene = preload("res://src/objects/coins/visual_hand/handVisual.tscn")
 
 # Screen limits & offsets
 var window_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 var window_width = ProjectSettings.get_setting("display/window/size/viewport_width")
-
 @export var offset_spawn_x:Vector2 = Vector2(100, -100)
 @export var offset_spawn_y:Vector2 = Vector2(100, -300)
 
-# Coins
-var current_coin:Coin
-
-
-#regarde tout les organ
-# prend ceux qui ont le pouvoir de lancer
-#lance la bonne main attribué a cette organ
 
 ###---Functions---###
 
 func playHands() -> void:
-	print("Playing hands...")
+	
+	
+	print("-Round started - playing hands... --------------------------------------")
 	# TODO implement current_coin 
 	current_coin = load("res://src/objects/coins/list/BaseCoin.tres") # Player.coins[0]
 	# Reset coinHandler's data
 	total_outcome = 0
 	# Recupere tout les organes qui peuvent lancer des pieces
-	var hands_types:Array[Organ]
+	var player_hands:Array[Organ]
 	for organ in Player.organs:
 		if organ.modifiers.any(func(attribut): return attribut.type == Player.Attributes.COINS_TOSSED):
-			hands_types.append(organ)
-	hands_types.shuffle()
+			player_hands.append(organ)
+	player_hands.shuffle()
 	nb_coins_landed = 0
-	nb_coins_to_toss =hands_types.size()
+	nb_coins_to_toss =player_hands.size()
 	spawn_delay_speed = clamp(speed_scale*nb_coins_to_toss,1,5)
 	
 	for i in range(nb_coins_to_toss):
 		#debug
-		print("Coin" + str(current_coin.name)+" instantiated, lauched with hand type "+ str(hands_types[i].name))
+		print("Coin" + str(current_coin.name)+" instantiated, lauched with hand type "+ str(player_hands[i].name))
 
 		var landing_position =  get_random_position()
+		player_hands[i]._on_used()
 		spawn_coin(current_coin,landing_position)
-		spawn_hand(hands_types[i],landing_position)
+		spawn_hand(player_hands[i],landing_position)
 		await get_tree().create_timer(spawn_delay/spawn_delay_speed).timeout	
 	
 	#subtracts durability
@@ -99,16 +94,21 @@ func end_round() -> void:
 	if current_coin.durability == 0:
 		current_coin._on_broke()
 	
-	hands_finished.emit(total_outcome)
+	
 	#debug
 	print("Total outcome: "+ str(total_outcome))
-	
+	print("-Round ended - deleting hands & coins... -------------------------------")
+
 	#After X seconds, free all instantiated coins
 	#TODO : streamline the destruction of the old coins
-	await get_tree().create_timer(5).timeout
-	clean_coins()
+	await get_tree().create_timer(3).timeout
+	hands_finished.emit()
+	await get_tree().create_timer(1).timeout
+	
+	
+	clean_scene()
 
-func clean_coins() -> void:
+func clean_scene() -> void:
 	for child in get_children():
 		child.queue_free()
 

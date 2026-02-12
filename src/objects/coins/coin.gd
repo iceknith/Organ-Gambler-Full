@@ -10,16 +10,6 @@
 @export var goodSideColor:Color
 @export var badSideColor:Color
 
-@export_group("Mouvements")
-@export var mouvementMedian:Vector2 = Vector2(0,-500)
-@export var variance:Vector2 = Vector2(100,100)
-
-@export_group("AnimationVars")
-@export var dist_to_posFinale_perc:float = 1
-@export var color_perc:float = 0
-@export var decided_color:bool = false
-@export var modulateAlpha:float
-
 func _on_added():
 	pass
 

@@ -16,9 +16,12 @@ func _ready() -> void:
 
 
 func update_visuals() -> void:
+	pass
+	"""
 	if(!hand_data.in_game_sprite):
 		print("waring: missing hand texture")
 	else: get_child(0).Texture2D = hand_data.in_game_sprite
+	"""
 
 
 func _process(delta: float) -> void:

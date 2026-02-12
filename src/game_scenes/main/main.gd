@@ -79,6 +79,9 @@ func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> voi
 	# Register the scene name on the history
 	sceneHistory.push_back(sceneName)
 	can_transition = true
+	
+	if(next_scene.has_method("play_scene")):
+		next_scene.play_scene()
 
 func go_back(transition:SceneTransition = null) -> void:
 	# This function uses the default transition, except when transition is entered

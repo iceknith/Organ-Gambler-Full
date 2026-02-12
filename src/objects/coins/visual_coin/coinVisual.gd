@@ -41,6 +41,7 @@ func flip() ->void:
 	else:
 		outcome =  coin_data._on_heads()
 		
+	Player.money+=outcome
 	landed.emit(outcome)
 
 func animation_and_mouvement()-> void:
