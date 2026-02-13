@@ -6,7 +6,7 @@ class_name context extends Control
 @onready var body: Label = $VBoxContainer/Body
 
 @export_group("Display duration:")
-@export var duration:float = 3
+@export var duration:float = 2
 
 ###---Functions---###
 func _ready() -> void:
@@ -14,7 +14,6 @@ func _ready() -> void:
 	connect_signals()
 
 func clear() -> void:
-	print("CLEARING CONTEXT")
 	title.text = ""
 	subtitle.text = ""
 	body.text = ""
