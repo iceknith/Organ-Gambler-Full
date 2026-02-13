@@ -1,7 +1,5 @@
 class_name coinVisual extends Node2D 
 
-
-
 ###---Signals---#
 signal landed(result: float)
 
@@ -43,7 +41,4 @@ func flip() ->void:
 	landed.emit(outcome)
 
 func animation_and_mouvement()-> void:
-	# play the coin's animation
-	# $AnimationPlayer.play("spin") 
-	# await $AnimationPlayer.animation_finished
 	position = landing_position

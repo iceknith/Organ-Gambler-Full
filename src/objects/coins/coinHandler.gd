@@ -13,7 +13,7 @@ var total_outcome:float
 
 var current_coin:Coin
 
-@export_group("instanciation & game speed")
+@export_group("Instanciation & game speed:")
 @export var delay_before_changing_scene:float = 3
 @export var spawn_delay:float = 0.5
 @export var speed_scale:float = 0.2
@@ -22,7 +22,7 @@ var current_coin:Coin
 const hand_scene:PackedScene = preload("res://src/objects/coins/visual_hand/handVisual.tscn")
 
 # spawn position
-@export_group("Screen limits & offsets")
+@export_group("Screen limits & offsets:")
 var window_height = ProjectSettings.get_setting("display/window/size/viewport_height")
 var window_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 @export var offset_spawn_x:Vector2 = Vector2(100, -100)
@@ -30,11 +30,8 @@ var window_width = ProjectSettings.get_setting("display/window/size/viewport_wid
 
 ###---Functions---###
 func playHands() -> void:
-	#print("-Round started - playing hands... --------------------------------------")
-	
 	current_coin = Player.coins[Player.selectedCoinIndex]
-	#print("Slected coin :"+current_coin.name)
-	
+
 	# Reset coinHandler's data
 	total_outcome = 0
 	nb_coins_landed = 0
@@ -49,8 +46,6 @@ func playHands() -> void:
 	var spawn_delay_speed = clamp(speed_scale*nb_coins_to_toss,1,5)
 	
 	for i in range(nb_coins_to_toss):
-		#debug
-		#print("Coin" + str(current_coin.name)+" instantiated, lauched with hand type "+ str(player_hands[i].name))
 		player_hands[i]._on_used()
 
 		var landing_position =  get_random_position()
@@ -80,6 +75,7 @@ func spawn_hand(hand_data:Organ, spawn_position:Vector2)->void:
 
 	add_child(hand)
 
+#when each coin finish it's task, send signal. This function wait for every coin to be done before calling the end of the round
 func coin_landed(outcome:float) -> void:
 	#print("Coin" + str(current_coin.name)+" landed, value =", str(outcome) )
 	
@@ -93,15 +89,11 @@ func coin_landed(outcome:float) -> void:
 func end_round() -> void:
 	if current_coin.durability == 0:
 		current_coin._on_broke()
-	
-	#debug
-	#print("Total outcome: "+ str(total_outcome))
-	#print("-Round ended - deleting hands & coins... -------------------------------")
+
 
 	await get_tree().create_timer(delay_before_changing_scene).timeout
 	hands_finished.emit()
 	await get_tree().create_timer(1).timeout
-	
 	clean_scene()
 
 func clean_scene() -> void:

@@ -21,17 +21,16 @@ var _internal_round: int = 0 #infinite recursion block
 
 ###---Signals---###
 signal new_wave(wave:int, new_objective:float)
-
+signal game_over()
 
 ###---Functions---###
 func _ready() -> void:
-	pass
 	new_wave.emit.call_deferred(1,wave_objective) # wait for the overlay to load before sending it's signall
 
 func next_wave() -> void:
 	print("NEXT WAVE")
 	if(Player.money < wave_objective): 
-		game_over() 
+		on_game_over() 
 		return
 	wave += 1
 	round = 0
@@ -41,11 +40,14 @@ func next_wave() -> void:
 
 func next_round() -> void:
 	round +=1
-	print("next round")
-	print("Player.Attributes.ROUNDS: "+ str(Player.get_attribute(Player.Attributes.ROUNDS)))
-	print("GameData roud: "+str(round))
-	print("wave_objective : "+str(wave_objective))
-func game_over() -> void:
+	# DEBUG
+	#print("next round")
+	#print("Player.Attributes.ROUNDS: "+ str(Player.get_attribute(Player.Attributes.ROUNDS)))
+	#print("GameData roud: "+str(round))
+	#print("wave_objective : "+str(wave_objective))
+	
+func on_game_over() -> void:
+	game_over.emit()
 	print("game over!")
 	wave =0
 	round = 0

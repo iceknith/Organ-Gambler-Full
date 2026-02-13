@@ -166,6 +166,8 @@ func _ready() -> void:
 	
 	# Add default Coins
 	load_default_coins()
+	
+	GameData.game_over.connect(on_game_over)
 
 func load_default_organs() -> void:
 	for organ_name:String in defaultOrgans:
@@ -179,6 +181,8 @@ func load_default_coins() -> void:
 		if coin: add_coin(coin)
 	print(coins)
 
+func on_game_over() -> void:
+	pass
 
 ###---Editor Stuff---###
 func _validate_property(property: Dictionary) -> void:

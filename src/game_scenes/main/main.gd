@@ -89,7 +89,7 @@ func go_back(transition:SceneTransition = null) -> void:
 	if !can_transition: push_warning("Another transition is ongoing !"); return
 	if (sceneHistory.is_empty()): printerr("No history !"); return
 	if (sceneHistory.size() < 2): printerr("Only one scene in history, can't operate"); return
-	
+
 	var current_scene:Node = get_node("GameScenes/%s" % [sceneHistory[-1]])
 	var previous_scene:Node = get_node("GameScenes/%s" % [sceneHistory[-2]]) 
 	if !transition: transition = scenes.get(current_scene.name)

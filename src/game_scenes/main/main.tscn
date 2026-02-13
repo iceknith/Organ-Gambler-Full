@@ -10,6 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://jb4fav4bu744" path="res://src/game_scenes/stats/stats.tscn" id="6_i8yr3"]
 [ext_resource type="PackedScene" uid="uid://cxkuopje14hnp" path="res://src/game_scenes/context/context.tscn" id="8_010ik"]
 
+[sub_resource type="Resource" id="Resource_i8yr3"]
+script = ExtResource("4_6wpp0")
+transition_direction = Vector2(0, 1)
+scene = ExtResource("8_010ik")
+invert_transition_duration = 0.1
+metadata/_custom_type_script = "uid://n5ob7nt03h06"
+
 [sub_resource type="Resource" id="Resource_010ik"]
 script = ExtResource("4_6wpp0")
 scene = ExtResource("3_fjtip")
@@ -43,11 +50,6 @@ transition_type = 9
 transition_duration = 0.75
 invert_transition_ease = 1
 invert_transition_duration = 0.2
-metadata/_custom_type_script = "uid://n5ob7nt03h06"
-
-[sub_resource type="Resource" id="Resource_i8yr3"]
-script = ExtResource("4_6wpp0")
-scene = ExtResource("8_010ik")
 metadata/_custom_type_script = "uid://n5ob7nt03h06"
 
 [node name="Main" type="Node" unique_id=772844155]
