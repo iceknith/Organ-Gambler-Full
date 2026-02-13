@@ -9,4 +9,4 @@ func connect_signals():
 	$PlayRound.pressed.connect(Main.main.switch_to_scene.bind("round"))
 	$Shop.pressed.connect(Main.main.switch_to_scene.bind("shop"))
 	$Stats.pressed.connect(Main.main.switch_to_scene.bind("stats"))
-	#$SkipRounds.pressed.connect(GameData.next_wave)
+	$SkipRounds.pressed.connect(Main.main.switch_to_scene.bind("context"))

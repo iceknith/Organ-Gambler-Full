@@ -58,13 +58,26 @@ Money : $Money
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=2092522380]
 layout_mode = 2
-size_flags_horizontal = 10
+size_flags_horizontal = 6
 size_flags_vertical = 0
 text = "VALUE_ADD : $VALUE_ADD
 
 VALUE_MULT: $VALUE_MULT
 
 Luck: $Luck
+
+"
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1040266898]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Rounds played : $ROUND1
+
+Player.ROUNDS : $ROUND2
+
+GameData : $ROUND3
+
+
 
 "
 

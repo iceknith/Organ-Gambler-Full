@@ -9,23 +9,10 @@ value = 0.3
 valueType = 1
 metadata/_custom_type_script = "uid://r4s7qms4ni1i"
 
-[sub_resource type="Resource" id="Resource_u73xc"]
-script = ExtResource("1_u73xc")
-type = 1
-value = 3.0
-metadata/_custom_type_script = "uid://r4s7qms4ni1i"
-
-[sub_resource type="Resource" id="Resource_qujol"]
-script = ExtResource("1_u73xc")
-type = 1
-value = 1.0
-valueType = 2
-metadata/_custom_type_script = "uid://r4s7qms4ni1i"
-
 [resource]
 script = ExtResource("2_qujol")
 base_cost = 50.0
-modifiers = Array[ExtResource("1_u73xc")]([SubResource("Resource_qahh2"), SubResource("Resource_u73xc"), SubResource("Resource_qujol")])
+modifiers = Array[ExtResource("1_u73xc")]([SubResource("Resource_qahh2")])
 name = "HandDebug"
 description = "Lorem Ipsum"
 weight = 2.0

@@ -4,7 +4,7 @@ class_name SimpleCoin extends Coin
 @export var valueTails:float
 
 func _on_heads() -> float:
-	return valueHeads
+	return valueHeads 
 
 func _on_tails() -> float:
 	return valueTails

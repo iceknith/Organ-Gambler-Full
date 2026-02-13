@@ -1,14 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://jmat1bbywlln"]
+[gd_scene format=3 uid="uid://jmat1bbywlln"]
 
 [ext_resource type="Script" uid="uid://bd85726oalado" path="res://src/game_scenes/bonus/bonus_selection.gd" id="1_h2q4y"]
 
-[node name="Bonus" type="Control"]
+[node name="Bonus" type="Control" unique_id=1091872995]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_h2q4y")
 bonus_choice_number = 3
 
-[node name="BonusContainer" type="HBoxContainer" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=807363722]
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.36078432)
+
+[node name="BonusContainer" type="HBoxContainer" parent="." unique_id=29545461]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 149.0

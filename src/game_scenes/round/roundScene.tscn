@@ -13,22 +13,3 @@ visible = false
 offset_right = 1350.0
 offset_bottom = 787.0
 color = Color(0.530252, 0.47924066, 0.47924066, 1)
-
-[node name="Back" type="Button" parent="." unique_id=1607021747]
-modulate = Color(1, 1, 1, 0.23137255)
-custom_minimum_size = Vector2(100, 60)
-offset_left = 30.0
-offset_top = 19.0
-offset_right = 130.0
-offset_bottom = 79.0
-text = "Back_debug"
-
-[node name="Play" type="Button" parent="." unique_id=115037812]
-visible = false
-custom_minimum_size = Vector2(100, 60)
-offset_left = 541.0
-offset_top = 396.0
-offset_right = 641.0
-offset_bottom = 456.0
-text = "play_debug
-"

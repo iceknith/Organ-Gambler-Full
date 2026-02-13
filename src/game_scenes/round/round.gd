@@ -1,21 +1,15 @@
 class_name round extends Node2D
 
+@export var delay_before_scene:float = 0.4
 
 func _ready():
 	connect_signals()
 	
-func connect_signals() -> void:
-	# Connect button signals
-	$Back.pressed.connect(Main.main.go_back)
-	$Play.pressed.connect(start_round)
-	
+func connect_signals() -> void:	
 	$CoinHandler.hands_finished.connect(end_round)
 	
 func play_scene() -> void:
-	await get_tree().create_timer(1).timeout
-	start_round()
-
-func start_round()->void:
+	await get_tree().create_timer(delay_before_scene).timeout
 	
 	for organ in Player.organs:
 		organ._on_round_started()
@@ -26,3 +20,5 @@ func end_round()->void:
 	for organ in Player.organs:
 		organ._on_round_ended()
 	Main.main.go_back()
+	
+	GameData.next_round()

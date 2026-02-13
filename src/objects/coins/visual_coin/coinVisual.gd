@@ -23,9 +23,7 @@ func _ready() -> void:
 	flip()
 
 func update_visuals() -> void:
-	if(!coin_data.texture):
-		print("waring: missing coin texture")
-	else: get_child(0).Texture2D = coin_data.texture
+	pass
 
 func flip() ->void:
 	

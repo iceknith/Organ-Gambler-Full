@@ -5,10 +5,10 @@
 [resource]
 script = ExtResource("1_wordi")
 valueHeads = 3.0
-valueTails = 1.0
+valueTails = -1.0
 durability = 2.0
 base_cost = 5.0
-luck = 0.7
+luck = 0.4
 goodSideColor = Color(0.75648403, 0.75648403, 0.75648403, 1)
 badSideColor = Color(0.19879562, 0.19879562, 0.19879562, 1)
 name = "SilverCoin"

@@ -4,6 +4,10 @@
 
 [node name="Player" type="Node" unique_id=312107765]
 script = ExtResource("1_4anbu")
-money = 100.0
+baseStats = Dictionary[int, float]({
+0: 0.0,
+1: 2.0,
+4: 1.0
+})
 defaultOrgans = Array[String](["Hand", "Teeth"])
 defaultCoins = Array[String](["SimpleCoin", "LuckyCoin", "SilverCoin"])
