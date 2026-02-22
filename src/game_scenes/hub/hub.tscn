@@ -48,11 +48,43 @@ offset_right = 1114.0
 offset_bottom = 87.0
 text = "Shop"
 
-[node name="CoinsContainer" type="GridContainer" parent="." unique_id=1916341455]
-layout_mode = 0
+[node name="CoinsScene" type="Control" parent="." unique_id=2048837500]
+anchors_preset = 0
 offset_left = 302.0
 offset_top = 412.0
 offset_right = 302.0
-offset_bottom = 452.0
+offset_bottom = 412.0
+
+[node name="CoinsContainer" type="GridContainer" parent="CoinsScene" unique_id=1916341455]
+layout_mode = 0
+offset_bottom = 40.0
 columns = 5
 script = ExtResource("2_rdi64")
+
+[node name="Label" type="Label" parent="CoinsScene" unique_id=417570646]
+visible = false
+layout_mode = 0
+offset_left = 195.0
+offset_top = -235.0
+offset_right = 305.0
+offset_bottom = -212.0
+text = "Are you sure ?"
+
+[node name="Yes" type="Button" parent="CoinsScene/Label" unique_id=435316186]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 31.0
+offset_bottom = 67.0
+text = "Yes"
+
+[node name="No" type="Button" parent="CoinsScene/Label" unique_id=454154420]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 35.0
+offset_right = 114.0
+offset_bottom = 66.0
+text = "No"
+
+[connection signal="pressed" from="CoinsScene/Label/Yes" to="CoinsScene/CoinsContainer" method="_on_yes_pressed"]
+[connection signal="pressed" from="CoinsScene/Label/No" to="CoinsScene/CoinsContainer" method="_on_no_pressed"]
