@@ -14,7 +14,6 @@ func connect_signals():
 	$PlayRound.pressed.connect(Main.main.switch_to_scene.bind("round"))
 	$Shop.pressed.connect(Main.main.switch_to_scene.bind("shop"))
 	$Stats.pressed.connect(Main.main.switch_to_scene.bind("stats"))
-	$SkipRounds.pressed.connect(on_new_wave)
 	
 	GameData.new_wave.connect(on_new_wave)
 	GameData.game_over.connect(on_game_over)
@@ -29,7 +28,6 @@ func on_new_wave(wave:int,new_objective:int) -> void:
 		new_wave = true
 	
 func return_scene() -> void:
-	# verifie si il dois en effect afficher son ecran
 	if(new_wave):
 		message_requested.emit("Wave "+str(GameData.wave),"objective "+str(GameData.wave_objective),"good luck",3)
 		new_wave =false

@@ -68,16 +68,6 @@ Luck: $Luck
 
 "
 
-[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1040266898]
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Rounds played : $ROUND1
-
-
-
-
-"
-
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" unique_id=1354315263]
 layout_mode = 2
 size_flags_vertical = 3
