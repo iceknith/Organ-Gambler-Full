@@ -20,6 +20,15 @@ func _ready() -> void:
 	main = self
 	initialize_scenes()
 
+# Context message management
+func _on_hub_message_requested(title, subtitle, body, duration):
+	switch_to_scene("context")
+	$GameScenes/context.display_message(title, subtitle, body, duration)
+
+# Context screen tack finished
+func _on_context_finished():
+	go_back()
+
 func initialize_scenes():
 	for sceneName in scenes:
 		var sceneTransition:SceneTransition = scenes[sceneName]
@@ -33,6 +42,10 @@ func initialize_scenes():
 		$GameScenes.add_child(scene)
 	# Add the first scene to the scene history
 	sceneHistory.append(firstScene)
+	
+	# Context / Hub signal management
+	$GameScenes/hub.message_requested.connect(_on_hub_message_requested)
+	$GameScenes/context.context_finished.connect(_on_context_finished)
 
 # Scene switching functions
 func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> void:
@@ -123,6 +136,10 @@ func go_back(transition:SceneTransition = null) -> void:
 	# remove the name from the history
 	sceneHistory.pop_back()
 	can_transition = true
+	
+	if(previous_scene.has_method("return_scene")):
+		previous_scene.return_scene()
+	
 
 func hide(node:Node) -> void:
 	if (node as Control) or (node as Node2D) or (node as Node3D):

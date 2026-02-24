@@ -13,7 +13,6 @@ var _internal_round: int = 0 #infinite recursion block
 	set(new_round):
 		var max_rounds = Player.get_attribute(Player.Attributes.ROUNDS)
 		if max_rounds <= 0: return 
-		
 		if new_round >= max_rounds:
 			next_wave()
 		else:
@@ -32,7 +31,7 @@ func next_wave() -> void:
 	if(Player.money < wave_objective): 
 		on_game_over() 
 		return
-	wave += 1
+	wave +=1
 	round = 0
 	Player.money-=wave_objective
 	wave_objective = calculate_wave_objective(wave, wave_objective)

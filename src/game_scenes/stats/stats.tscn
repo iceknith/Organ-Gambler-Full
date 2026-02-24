@@ -73,9 +73,6 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "Rounds played : $ROUND1
 
-Player.ROUNDS : $ROUND2
-
-GameData : $ROUND3
 
 
 
