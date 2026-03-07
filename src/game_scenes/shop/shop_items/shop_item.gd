@@ -1,5 +1,8 @@
 @abstract class_name ShopItem extends Control
 
+#signals
+signal item_bought
+
 #texte du boutton
 var text:String = "Default"
 #lignes de tooltip
@@ -31,3 +34,4 @@ func try_to_buy() -> void:
 
 func bought():
 	cost = 0
+	item_bought.emit()

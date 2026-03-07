@@ -10,7 +10,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0npe2")
-reroll_left = 5
 organs_inventory_size = 10
 coins_inventory_size = 4
 

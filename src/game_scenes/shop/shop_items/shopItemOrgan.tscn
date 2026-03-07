@@ -7,3 +7,4 @@
 scale = Vector2(1.0038216, 1)
 size_flags_vertical = 3
 script = ExtResource("2_jy0rg")
+cost = null

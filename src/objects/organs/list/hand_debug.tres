@@ -15,5 +15,5 @@ base_cost = 50.0
 modifiers = Array[ExtResource("1_u73xc")]([SubResource("Resource_qahh2")])
 name = "HandDebug"
 description = "Lorem Ipsum"
-weight = 2.0
+weight = 0.5
 metadata/_custom_type_script = "uid://bj73u7n2cj046"

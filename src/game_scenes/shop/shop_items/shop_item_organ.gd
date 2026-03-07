@@ -37,4 +37,3 @@ func bought():
 	set("organ",null)
 	#bloque le slot du shop
 	$Button.disabled = true
-	pass
