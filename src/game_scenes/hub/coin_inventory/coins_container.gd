@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	load_coin_slot()
 
-func load_coin_slot():
+func load_coin_slot() -> void:
 	var slot:CoinSlot
 	for index in Player.maxCoinCount:
 		slot = coin_slot_scene.instantiate()
@@ -23,7 +23,14 @@ func load_coin_slot():
 		slot.try_to_delete.connect(display_confirm_screen)
 		add_child(slot)
 
-func deselect_others(selected:Button):
+func get_coin_slot(index:int) -> CoinSlot:
+	for slot:CoinSlot in get_children():
+		if slot.index == Player.selectedCoinIndex:
+			return slot
+	return null
+
+
+func deselect_others(selected:Button) -> void:
 	for button:Button in get_children():
 		if button != selected:
 			button.button_pressed = false
@@ -31,21 +38,26 @@ func deselect_others(selected:Button):
 
 func auto_select() -> void:
 	if Player.get_selected_coin() == null:
-		for button:Button in get_children():
+		for button:CoinSlot in get_children():
 			if button.coin != null:
 				button.button_pressed = true
 				button.get_child(0).visible = true
+				Player.selectedCoinIndex = button.index
 				break
-				
 
-func display_confirm_screen():
+func display_confirm_screen() -> void:
 	confirm_label.visible = true
 
 
 func _on_yes_pressed() -> void:
 	print("deleting...")
+	confirm_label.visible = false
 	#delete coin and refresh
-	pass
+	var slot:CoinSlot = get_coin_slot(Player.selectedCoinIndex)
+	Player.remove_coin(Player.selectedCoinIndex)
+	slot.refresh()
+	slot.get_child(0).visible = false #hide delete button
+	auto_select()
 
 
 func _on_no_pressed() -> void:
