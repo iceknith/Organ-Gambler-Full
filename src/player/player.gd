@@ -8,6 +8,7 @@ enum Attributes {
 	VALUE_ADD,
 	VALUE_MULT,
 	LUCK,
+	SHOP_REROLL,
 	NULL
 }
 

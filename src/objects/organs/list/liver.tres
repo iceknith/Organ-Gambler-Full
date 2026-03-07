@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Organ" format=3 uid="uid://l27bep31k7md"]
+
+[ext_resource type="Script" uid="uid://r4s7qms4ni1i" path="res://src/utils/attribute_modifiers/attributeModifier.gd" id="1_p2blo"]
+[ext_resource type="Script" uid="uid://bj73u7n2cj046" path="res://src/objects/organs/organ.gd" id="2_wxb5w"]
+
+[sub_resource type="Resource" id="Resource_p2blo"]
+script = ExtResource("1_p2blo")
+type = 2
+value = 1.0
+metadata/_custom_type_script = "uid://r4s7qms4ni1i"
+
+[resource]
+script = ExtResource("2_wxb5w")
+base_cost = 5.0
+modifiers = Array[ExtResource("1_p2blo")]([SubResource("Resource_p2blo")])
+name = "Liver"
+description = "Adds 1 to the value"
+weight = 1.0
+metadata/_custom_type_script = "uid://bj73u7n2cj046"

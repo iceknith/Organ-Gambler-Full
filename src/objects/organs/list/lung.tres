@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Organ" format=3 uid="uid://cftdj3tx2oweh"]
+
+[ext_resource type="Script" uid="uid://r4s7qms4ni1i" path="res://src/utils/attribute_modifiers/attributeModifier.gd" id="1_vyl5d"]
+[ext_resource type="Script" uid="uid://bj73u7n2cj046" path="res://src/objects/organs/organ.gd" id="2_rsy71"]
+
+[sub_resource type="Resource" id="Resource_eacba"]
+script = ExtResource("1_vyl5d")
+type = 3
+value = 1.0
+metadata/_custom_type_script = "uid://r4s7qms4ni1i"
+
+[resource]
+script = ExtResource("2_rsy71")
+base_cost = 10.0
+modifiers = Array[ExtResource("1_vyl5d")]([SubResource("Resource_eacba")])
+name = "Lung"
+description = "Adds 1 to the multiplicator"
+weight = 0.3
+metadata/_custom_type_script = "uid://bj73u7n2cj046"

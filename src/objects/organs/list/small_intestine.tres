@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Organ" format=3 uid="uid://wahunpi7n68u"]
+
+[ext_resource type="Script" uid="uid://r4s7qms4ni1i" path="res://src/utils/attribute_modifiers/attributeModifier.gd" id="1_gmjef"]
+[ext_resource type="Script" uid="uid://bj73u7n2cj046" path="res://src/objects/organs/organ.gd" id="2_78u0j"]
+
+[sub_resource type="Resource" id="Resource_gmjef"]
+script = ExtResource("1_gmjef")
+metadata/_custom_type_script = "uid://r4s7qms4ni1i"
+
+[resource]
+script = ExtResource("2_78u0j")
+base_cost = 3.0
+modifiers = Array[ExtResource("1_gmjef")]([SubResource("Resource_gmjef")])
+name = "Small intestine"
+description = "Adds 1 shop reroll each Wave"
+weight = 0.5
+metadata/_custom_type_script = "uid://bj73u7n2cj046"
