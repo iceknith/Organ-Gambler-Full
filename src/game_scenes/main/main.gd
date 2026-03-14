@@ -20,14 +20,16 @@ func _ready() -> void:
 	main = self
 	initialize_scenes()
 
+'''
 # Context message management
-func _on_hub_message_requested(title, subtitle, body, duration):
+func _on_hub_message_requested(title, subtitle, body, duration): # ---- /!\
 	switch_to_scene("context")
 	$GameScenes/context.display_message(title, subtitle, body, duration)
-
+'''
 # Context screen tack finished
 func _on_context_finished():
-	go_back()
+	go_back()# ---- /!\
+
 
 func initialize_scenes():
 	for sceneName in scenes:
@@ -44,8 +46,8 @@ func initialize_scenes():
 	sceneHistory.append(firstScene)
 	
 	# Context / Hub signal management
-	$GameScenes/hub.message_requested.connect(_on_hub_message_requested)
-	$GameScenes/context.context_finished.connect(_on_context_finished)
+	#$GameScenes/hub.message_requested.connect(_on_hub_message_requested)# ---- /!\
+	#$GameScenes/context.context_finished.connect(_on_context_finished)# ---- /!\
 
 # Scene switching functions
 func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> void:
@@ -95,6 +97,7 @@ func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> voi
 	
 	if(next_scene.has_method("play_scene")):
 		next_scene.play_scene()
+	action()
 
 func go_back(transition:SceneTransition = null) -> void:
 	# This function uses the default transition, except when transition is entered
@@ -138,8 +141,8 @@ func go_back(transition:SceneTransition = null) -> void:
 	can_transition = true
 	
 	if(previous_scene.has_method("return_scene")):
-		previous_scene.return_scene()
-	
+		previous_scene.return_scene()	
+	action()
 
 func hide(node:Node) -> void:
 	if (node as Control) or (node as Node2D) or (node as Node3D):
@@ -150,3 +153,10 @@ func show(node:Node) -> void:
 	if (node as Control) or (node as Node2D) or (node as Node3D):
 		node.show()
 	node.process_mode = Node.PROCESS_MODE_INHERIT
+
+# function that trigger every time a scene transition happends
+func action() -> void:
+	#display context screen on top of hub 
+	if (sceneHistory.size() == 1 && sceneHistory[0] == "hub"):
+		print("DISPLAY MESSAGE")
+		GameData.display_context_message()

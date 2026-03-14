@@ -6,7 +6,7 @@ class_name context extends Control
 @onready var body: Label = $VBoxContainer/Body
 
 @export_group("Display duration:")
-@export var duration:float = 2
+@export var base_duration:float = 1
 
 ###---Signals---###
 signal context_finished
@@ -14,18 +14,25 @@ signal context_finished
 ###---Functions---###
 func _ready() -> void:
 	clear()
+	connect_signals()
+	
 
-func display_message(_title:String="", _subtitle:String= "", _body:String ="", _duration:float =0):
-	print("debug?")
-	title.text = _title
-	subtitle.text = _subtitle
-	body.text =  _body
+func connect_signals() -> void:
+	GameData.message.connect(display_message)
+
+func display_message(info:Messages):
+	var t = Utils.text_processor( info.title)
+	print("DISPLAYING MESSAGE :" + t)
+	title.text = t
+	subtitle.text =  Utils.text_processor( info.subtitle)
+	body.text =   Utils.text_processor( info.body)
 	
 	# display timeout
-	if _duration == 0 : await get_tree().create_timer(duration).timeout
-	else: await get_tree().create_timer(_duration).timeout
+	if info.duration == 0 : await get_tree().create_timer(base_duration).timeout
+	else: await get_tree().create_timer(info.duration ).timeout
 	clear()
 	context_finished.emit() 
+
 
 func clear() -> void:
 	title.text = ""

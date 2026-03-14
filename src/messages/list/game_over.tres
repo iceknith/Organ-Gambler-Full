@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="messages" format=3 uid="uid://6dv2e0jpjaa6"]
+
+[ext_resource type="Script" uid="uid://3dv47nyyfbid" path="res://src/messages/messages.gd" id="1_qrc42"]
+
+[resource]
+script = ExtResource("1_qrc42")
+priority = 10
+title = "GAME OVER"
+duration = 999.0
+metadata/_custom_type_script = "uid://3dv47nyyfbid"

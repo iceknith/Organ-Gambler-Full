@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="messages" format=3 uid="uid://6jpyyk5sbgv6"]
+
+[ext_resource type="Script" uid="uid://3dv47nyyfbid" path="res://src/messages/messages.gd" id="1_ylje3"]
+
+[resource]
+script = ExtResource("1_ylje3")
+priority = 1
+title = "FIRST WAVE"
+subtitle = "Bet you can gamble your way to victory?"
+metadata/_custom_type_script = "uid://3dv47nyyfbid"

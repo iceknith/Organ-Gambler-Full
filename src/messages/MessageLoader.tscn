@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dvjjhstpax0p5"]
+
+[ext_resource type="Script" uid="uid://cbmqrdj5aqwm0" path="res://src/messages/messageLoader.gd" id="1_cc3lx"]
+
+[node name="MessageLoader" type="Node2D" unique_id=1946104330]
+script = ExtResource("1_cc3lx")

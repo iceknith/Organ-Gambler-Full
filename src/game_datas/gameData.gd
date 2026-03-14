@@ -4,10 +4,9 @@ extends Node
 @export var wave:int = 0
 @export var wave_objective:float = 1
 
-var _round:int =0
-
 var _internal_round: int = 0 #infinite recursion block
-@export var round: int:
+# call next_wave() automatically when every rounds has ended
+@export var round: int: 
 	get:
 		return _internal_round
 	set(new_round):
@@ -22,9 +21,13 @@ var _internal_round: int = 0 #infinite recursion block
 signal new_wave(wave:int, new_objective:float)
 signal game_over()
 
+signal message(informations:Messages)
+
 ###---Functions---###
 func _ready() -> void:
 	new_wave.emit.call_deferred(1,wave_objective) # wait for the overlay to load before sending it's signall
+	
+	context_message(MessageLoader.get_message("first_wave.tres"))
 
 func next_wave() -> void:
 	print("NEXT WAVE")
@@ -47,6 +50,7 @@ func next_round() -> void:
 	
 func on_game_over() -> void:
 	game_over.emit()
+	context_message(MessageLoader.get_message("game_over"))
 	print("game over!")
 	wave =0
 	round = 0
@@ -56,3 +60,18 @@ func on_game_over() -> void:
 
 func calculate_wave_objective(current_wave:int, previous_wave_objective:int) -> float:
 	return previous_wave_objective * (2 + (current_wave / 5))
+
+var mes:Messages
+#Allows any script to request a context message 
+func context_message(info:Messages) -> void:
+	mes = info
+	#ajoute le message dans une liste de message
+	
+	
+func display_context_message():
+	if mes != null:
+		message.emit(mes)
+	
+
+
+# faire en sorte que main connect fin de message a une methode ici comme ca 
