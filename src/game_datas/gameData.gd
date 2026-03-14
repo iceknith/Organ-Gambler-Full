@@ -14,6 +14,7 @@ var _internal_round: int = 0 #infinite recursion block
 		if max_rounds <= 0: return 
 		if new_round >= max_rounds:
 			next_wave()
+			context_message(MessageLoader.get_message("first_wave.tres"))
 		else:
 			_internal_round = new_round
 
@@ -21,13 +22,13 @@ var _internal_round: int = 0 #infinite recursion block
 signal new_wave(wave:int, new_objective:float)
 signal game_over()
 
-signal message(informations:Messages)
+signal message(info:Messages)
 
 ###---Functions---###
 func _ready() -> void:
 	new_wave.emit.call_deferred(1,wave_objective) # wait for the overlay to load before sending it's signall
 	
-	context_message(MessageLoader.get_message("first_wave.tres"))
+	#context_message(MessageLoader.get_message("first_wave.tres"))
 
 func next_wave() -> void:
 	print("NEXT WAVE")
@@ -61,17 +62,28 @@ func on_game_over() -> void:
 func calculate_wave_objective(current_wave:int, previous_wave_objective:int) -> float:
 	return previous_wave_objective * (2 + (current_wave / 5))
 
-var mes:Messages
+
+
+# Context screen gestion
+var message_array:Array[Messages]
+
 #Allows any script to request a context message 
 func context_message(info:Messages) -> void:
-	mes = info
+	print("gameData recieved message:" + info.title)
+	message_array.append(info)
 	#ajoute le message dans une liste de message
 	
 	
 func display_context_message():
-	if mes != null:
-		message.emit(mes)
+	if !message_array.is_empty():
+		print("bruh?")
+		Main.main.switch_to_scene("context")
+		print("gameData is asking to display:" + message_array[0].title)
+		message.emit(message_array[0])
+		message_array.pop_at(0)
 	
-
+func context_finished():
+	
+	display_context_message()
 
 # faire en sorte que main connect fin de message a une methode ici comme ca 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vbeqtub1cxud" path="res://src/game_scenes/stats/stats.gd" id="1_habpo"]
 [ext_resource type="Texture2D" uid="uid://bixpcax2l3df6" path="res://icon.svg" id="2_6o8qp"]
 [ext_resource type="Script" uid="uid://npxvdowu7rtg" path="res://src/game_scenes/stats/organ_display_container.gd" id="2_plk11"]
+[ext_resource type="Texture2D" uid="uid://bmojxasjtodgm" path="res://src/textures/rideau_metal.jpg" id="2_v7ejb"]
 
 [node name="Stats" type="Control" unique_id=1633799640]
 layout_mode = 3
@@ -21,6 +22,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.14901961, 0.14901961, 0.14901961, 0.5568628)
+
+[node name="RideauMetalTMP" type="Sprite2D" parent="background" unique_id=1362598135]
+modulate = Color(0.52906674, 0.5290667, 0.5290667, 1)
+position = Vector2(577.5, 324.5)
+scale = Vector2(1.8839868, 1.5710784)
+texture = ExtResource("2_v7ejb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2146326725]
 layout_mode = 1

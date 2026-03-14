@@ -4,6 +4,8 @@ var message_paths := {}
 
 var path = "res://src/messages/list/"
 
+var debug_message = load("res://src/messages/list/debug.tres")
+
 func _ready() -> void:
 	load_message_path()
 
@@ -25,8 +27,9 @@ func load_message_path() -> void:
 	dir.list_dir_end()
 
 func get_message(name:String) -> Messages:
+	"""
 	if not message_paths.has(name):
 		push_error("Message not found: " + name)
 		return null
-		
-	return load(message_paths[name])
+		"""
+	return debug_message#message_paths[name])

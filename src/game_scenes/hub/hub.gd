@@ -18,37 +18,3 @@ func connect_signals():
 func return_scene() -> void:
 	#GameData.context_message() # ---------------------
 	pass
-
-
-
-	"""
-	GameData.new_wave.connect(on_new_wave)
-	GameData.game_over.connect(on_game_over)
-"""
-
-
-
-# -------------------------------------
-"""
-func on_game_over() -> void:
-	game_over = true# ---- /!\
-	
-func on_new_wave(wave:int,new_objective:int) -> void:# ---- /!\
-	if(new_objective == 1):
-		message_requested.emit("FIRST WAVE","","",1)
-	else:
-		new_wave = true
-	
-func return_scene() -> void:
-	
-	# montre message
-	
-	if(new_wave):
-		message_requested.emit("Wave "+str(GameData.wave),"objective "+str(GameData.wave_objective),"good luck",3)
-		new_wave =false
-
-	if(game_over):# ---- /!\
-		message_requested.emit("GAME OVER","","",6)
-		game_over =false
-"""
-	

@@ -40,7 +40,7 @@ CoinLoader="*res://src/objects/coins/coinLoader.tscn"
 OrganLoader="*res://src/objects/organs/organLoader.tscn"
 MessageLoader="*uid://dvjjhstpax0p5"
 GameData="*res://src/game_datas/gameData.gd"
-Utils="*uid://butksl88mvyie"
+Utils="*uid://belogivyjeq68"
 
 [editor_plugins]
 

@@ -154,9 +154,12 @@ func show(node:Node) -> void:
 		node.show()
 	node.process_mode = Node.PROCESS_MODE_INHERIT
 
-# function that trigger every time a scene transition happends
+#Function that trigger every time a scene transition happends.
 func action() -> void:
+	
 	#display context screen on top of hub 
 	if (sceneHistory.size() == 1 && sceneHistory[0] == "hub"):
-		print("DISPLAY MESSAGE")
+		print("main will start displaying ...")
 		GameData.display_context_message()
+		
+		

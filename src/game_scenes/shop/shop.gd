@@ -73,7 +73,7 @@ func restock_organ(index:int) -> void:
 	shop_item.set("organ", random_organ)
 	shop_item.set("cost", cost)
 	
-	print("{0} {1} {2}$\n".format([random_organ.name,random_organ.description,cost]))
+	#print("{0} {1} {2}$\n".format([random_organ.name,random_organ.description,cost]))
 
 func restock_all_coins() -> void:
 	
@@ -92,7 +92,7 @@ func restock_coin(index:int) -> void:
 	shop_item.set("coin", random_coin)
 	shop_item.set("cost", cost)
 	
-	print("{0} {1} {2}$\n".format([random_coin.name,random_coin.description,cost]))
+	#print("{0} {1} {2}$\n".format([random_coin.name,random_coin.description,cost]))
 
 func calculate_cost_organ(organ:Organ) -> float:
 	var base:float = organ.base_cost
@@ -120,7 +120,7 @@ func reroll_shop() -> void:
 func update_reroll() -> void:
 	player_reroll = Player.get_attribute(Player.Attributes.SHOP_REROLL)
 	reroll_left = player_reroll - reroll_used
-	print(reroll_left)
+	#print(reroll_left)
 
 
 func _on_item_bought() -> void:
