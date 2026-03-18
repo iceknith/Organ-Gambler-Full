@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="messages" format=3 uid="uid://col860vjytmvn"]
+[gd_resource type="Resource" script_class="Messages" format=3 uid="uid://col860vjytmvn"]
 
 [ext_resource type="Script" uid="uid://3dv47nyyfbid" path="res://src/messages/messages.gd" id="1_ra70g"]
 
@@ -8,5 +8,5 @@ priority = 1
 title = "NEW WAVE !"
 subtitle = "ready for wave $wave ?"
 body = "you have $round !"
-duration = 2.0
+duration = 3.0
 metadata/_custom_type_script = "uid://3dv47nyyfbid"

@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_6axc6")
 priority = 1
-title = "DEBUG"
-subtitle = "DEBUG MESSAGE"
-body = "DEBUG"
-duration = 2.0
+title = "DEBUG MESSAGE"
+subtitle = "404"
+body = "good luck on your journey"
+duration = 5.0
 metadata/_custom_type_script = "uid://3dv47nyyfbid"

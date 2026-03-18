@@ -11,5 +11,5 @@ baseStats = Dictionary[int, float]({
 4: 1.0,
 5: 0.0
 })
-defaultOrgans = Array[String](["Hand", "Teeth"])
+defaultOrgans = Array[String](["Hand"])
 defaultCoins = Array[String](["SimpleCoin", "LuckyCoin", "SilverCoin"])

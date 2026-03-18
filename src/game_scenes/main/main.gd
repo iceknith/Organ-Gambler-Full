@@ -47,7 +47,7 @@ func initialize_scenes():
 	
 	# Context / Hub signal management
 	#$GameScenes/hub.message_requested.connect(_on_hub_message_requested)# ---- /!\
-	#$GameScenes/context.context_finished.connect(_on_context_finished)# ---- /!\
+	$GameScenes/context.context_finished.connect(GameData.context_finished)# ---- /!\
 
 # Scene switching functions
 func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> void:

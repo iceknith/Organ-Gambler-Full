@@ -27,9 +27,9 @@ func load_message_path() -> void:
 	dir.list_dir_end()
 
 func get_message(name:String) -> Messages:
-	"""
 	if not message_paths.has(name):
 		push_error("Message not found: " + name)
-		return null
-		"""
-	return debug_message#message_paths[name])
+		debug_message.body = "did not found:" + name
+		return debug_message
+		
+	return load(message_paths[name])
