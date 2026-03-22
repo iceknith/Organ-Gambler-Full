@@ -33,10 +33,6 @@ func _ready() -> void:
 	new_wave.emit.call_deferred(1,wave_objective) # wait for the overlay to load before sending it's signall
 	request_context_message(MessageLoader.get_message("first_wave"))
 	
-	request_context_message(MessageLoader.get_message("debug"))
-	request_context_message(MessageLoader.get_message("debug"))
-	request_context_message(MessageLoader.get_message("debug"))
-	
 func next_wave() -> void:
 	print("Debug, wave info: wave n" + str(wave) + " wave objectif: " + str(wave_objective))
 	# Loose condition:
@@ -97,7 +93,12 @@ func message_priority_sort() -> void:
 
 func display_context_message():
 	if !message_array.is_empty():
-		Main.main.switch_to_scene("context")
+		# If the current scene is already "context"
+		if Main.main.sceneHistory[-1] != "context":
+			Main.main.switch_to_scene("context")
+		
+		await get_tree().process_frame
+		
 		print("displaying:" + message_array[0].title)
 		message.emit(message_array[0])
 		message_array.pop_at(0)

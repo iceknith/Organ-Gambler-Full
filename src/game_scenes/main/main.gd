@@ -148,6 +148,4 @@ func show(node:Node) -> void:
 func action() -> void:
 	#Displays context screen on top of hub 
 	if (sceneHistory.size() == 1 && sceneHistory[0] == "hub"):
-		GameData.display_context_message()
-		
-		
+		GameData.display_context_message()	

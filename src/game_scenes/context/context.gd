@@ -18,9 +18,9 @@ func _ready() -> void:
 	
 
 func connect_signals() -> void:
-	GameData.message.connect(display_message2)
+	GameData.message.connect(display_message)
 
-func display_message2(info:Messages):
+func display_message(info:Messages):
 	var t = Utils.text_processor( info.title)
 	print("CONTEXT : DISPLAYING MESSAGE :" + t)
 	title.text = t
@@ -29,10 +29,9 @@ func display_message2(info:Messages):
 	
 	# display timeout
 	if info.duration == 0 : await get_tree().create_timer(base_duration).timeout
-	else: await get_tree().create_timer(info.duration ).timeout
+	else: await get_tree().create_timer(info.duration).timeout
 	#clear()
 	context_finished.emit() 
-
 
 func clear() -> void:
 	title.text = ""
