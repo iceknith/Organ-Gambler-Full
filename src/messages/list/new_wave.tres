@@ -7,6 +7,6 @@ script = ExtResource("1_ra70g")
 priority = 1
 title = "NEW WAVE !"
 subtitle = "ready for wave $wave ?"
-body = "you have $round !"
+body = "you have only $round rounds!"
 duration = 3.0
 metadata/_custom_type_script = "uid://3dv47nyyfbid"

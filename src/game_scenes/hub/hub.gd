@@ -14,7 +14,3 @@ func connect_signals():
 	$PlayRound.pressed.connect(Main.main.switch_to_scene.bind("round"))
 	$Shop.pressed.connect(Main.main.switch_to_scene.bind("shop"))
 	$Stats.pressed.connect(Main.main.switch_to_scene.bind("stats"))
-
-func return_scene() -> void:
-	#GameData.context_message() # ---------------------
-	pass

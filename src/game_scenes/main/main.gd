@@ -19,17 +19,7 @@ func _ready() -> void:
 	if main != null: push_error("Main already instantiated"); return
 	main = self
 	initialize_scenes()
-
-'''
-# Context message management
-func _on_hub_message_requested(title, subtitle, body, duration): # ---- /!\
-	switch_to_scene("context")
-	$GameScenes/context.display_message(title, subtitle, body, duration)
-'''
-# Context screen tack finished
-func _on_context_finished():
-	go_back()# ---- /!\
-
+	action()
 
 func initialize_scenes():
 	for sceneName in scenes:
@@ -45,9 +35,8 @@ func initialize_scenes():
 	# Add the first scene to the scene history
 	sceneHistory.append(firstScene)
 	
-	# Context / Hub signal management
-	#$GameScenes/hub.message_requested.connect(_on_hub_message_requested)# ---- /!\
-	$GameScenes/context.context_finished.connect(GameData.context_finished)# ---- /!\
+	# Context / gameData signal management
+	$GameScenes/context.context_finished.connect(GameData.context_finished)
 
 # Scene switching functions
 func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> void:
@@ -97,6 +86,7 @@ func switch_to_scene(sceneName:String, transition:SceneTransition = null) -> voi
 	
 	if(next_scene.has_method("play_scene")):
 		next_scene.play_scene()
+	
 	action()
 
 func go_back(transition:SceneTransition = null) -> void:
@@ -154,12 +144,10 @@ func show(node:Node) -> void:
 		node.show()
 	node.process_mode = Node.PROCESS_MODE_INHERIT
 
-#Function that trigger every time a scene transition happends.
+#Function that trigger every time a scene transition happends. Also called at the start of the game.
 func action() -> void:
-	
-	#display context screen on top of hub 
+	#Displays context screen on top of hub 
 	if (sceneHistory.size() == 1 && sceneHistory[0] == "hub"):
-		print("main will start displaying ...")
 		GameData.display_context_message()
 		
 		
